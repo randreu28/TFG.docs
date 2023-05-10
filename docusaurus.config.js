@@ -66,11 +66,15 @@ const config = {
             position: "left",
           },
           {
+            href: "/showcase",
+            label: "Showcase",
+            position: "left",
+          },
+          {
             href: "https://github.com/randreu28",
             label: "GitHub",
             position: "right",
           },
-          
         ],
       },
       footer: {
@@ -82,6 +86,10 @@ const config = {
               {
                 label: "What is this?",
                 to: "/",
+              },
+              {
+                label: "Showcase",
+                to: "/showcase",
               },
             ],
           },
