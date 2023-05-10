@@ -6,20 +6,15 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "My Site",
-  tagline: "Dinosaurs are cool",
-  favicon: "img/favicon.ico",
+  title: "TFG docs",
+  tagline: "Gallery of interactive applications with 3D components",
+  favicon: "img/logo.svg",
 
   // Set the production url of your site here
-  url: "https://your-docusaurus-test-site.com",
+  url: "https://tfg-docs.vercel.app/",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
-
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: "facebook", // Usually your GitHub org/user name.
-  projectName: "docusaurus", // Usually your repo name.
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -53,9 +48,9 @@ const config = {
       // Replace with your project's social card
       image: "img/docusaurus-social-card.jpg",
       navbar: {
-        title: "My Site",
+        title: "TFG Docs",
         logo: {
-          alt: "My Site Logo",
+          alt: "Logo",
           src: "img/logo.svg",
         },
         items: [
@@ -63,41 +58,68 @@ const config = {
             type: "docSidebar",
             sidebarId: "tutorialSidebar",
             position: "left",
-            label: "Tutorial",
+            label: "Docs",
           },
           {
-            href: "https://github.com/facebook/docusaurus",
+            href: "/",
+            label: "What is this?",
+            position: "left",
+          },
+          {
+            href: "https://github.com/randreu28",
             label: "GitHub",
             position: "right",
           },
+          
         ],
       },
       footer: {
         style: "dark",
         links: [
           {
-            title: "Docs",
+            title: "Info",
             items: [
               {
-                label: "Tutorial",
-                to: "/docs/intro",
+                label: "What is this?",
+                to: "/",
               },
             ],
           },
           {
-            title: "Community",
+            title: "Repositories",
             items: [
               {
-                label: "Stack Overflow",
-                href: "https://stackoverflow.com/questions/tagged/docusaurus",
+                label: "TriArt",
+                href: "https://github.com/randreu28/TFG.triart",
               },
               {
-                label: "Discord",
-                href: "https://discordapp.com/invite/docusaurus",
+                label: "Halo inspector",
+                href: "https://github.com/randreu28/TFG.halo-inspector",
               },
               {
-                label: "Twitter",
-                href: "https://twitter.com/docusaurus",
+                label: "Particle showcase",
+                href: "https://github.com/randreu28/TFG.particle-showcase",
+              },
+              {
+                label: "Product page",
+                href: "https://github.com/randreu28/TFG.product-page",
+              },
+            ],
+          },
+          {
+            title: " ",
+            items: [
+              {
+                label: "Mirror effect",
+                href: "https://github.com/randreu28/TFG.mirror-effect",
+              },
+              {
+                label: "Buckle up",
+                href: "https://github.com/randreu28/TFG.buckle-up",
+              },
+              {
+                label: "Talking stars",
+                href: "https://github.com/randreu28/TFG.talking-stars",
               },
             ],
           },
@@ -105,17 +127,13 @@ const config = {
             title: "More",
             items: [
               {
-                label: "Blog",
-                to: "/blog",
-              },
-              {
-                label: "GitHub",
-                href: "https://github.com/facebook/docusaurus",
+                label: "My github profile",
+                href: "https://github.com/randreu28",
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} TFG.docs. All Rights Reserved`,
       },
       prism: {
         theme: lightCodeTheme,
