@@ -194,5 +194,5 @@ switch (tick) {
 Gsap is an animation library. Their API can be quickly explained with this graph:
 :::
 
-<iframe height="800" width="100%"  scrolling="no" title=" Preview: GreenSock Ease Visualizer" src="https://codepen.io/Wpitallo/full/KKwLqLd" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="800" width="100%" scrolling="no" title=" Preview: GreenSock Ease Visualizer" src="https://codepen.io/Wpitallo/full/KKwLqLd" frameBorder="no" loading="lazy">
 </iframe>

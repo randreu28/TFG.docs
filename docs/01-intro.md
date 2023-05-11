@@ -27,11 +27,12 @@ Naturally, Three.js takes an imperative coding approach, and what better than [R
 Some of the projects will lean heavily on shaders. Shaders are just a way of handling the rendering of certain objects in a very low-level-abstraction way, directly to the WebGL GLSL compiler. 
 
 :::tip
-Shaders can be complicated at first, but they're actually very visual!. Here's a quick look of a shader:
+Shaders can be complicated at first, but they're actually very visual! Here's a quick look of a shader:
 :::
 
-<iframe height="550" width="100%"  scrolling="no" title=" Preview: GreenSock Ease Visualizer" src="http://editor.thebookofshaders.com/" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-</iframe>
+<iframe height="550" width="100%"  title="Shaders" src="https://actarian.github.io/vscode-glsl-canvas/?glsl=buffers
+" frameBorder="no" loading="lazy"/>
+
 
 It is often used for particularly peculiar tasks that require a very surgical control of the rendering process. As Patricio Gonzalez put it in his book [The Book of Shaders](https://thebookofshaders.com):
 
