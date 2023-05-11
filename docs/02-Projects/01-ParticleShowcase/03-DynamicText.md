@@ -1,5 +1,9 @@
 # Dynamic text
 
+The dynamic text component relys on the [scrambleUI](https://www.npmjs.com/package/@a7sc11u/scramble) library.
+
+From the <Buffer/> component, we cycle between the tick state, which is what marks the speed at which the buffer changes of geometry. We used a simple [zustand](https://github.com/pmndrs/zustand) store (Similiar to Redux) to get it and we attach it to the `<TextScramble/>` component that takes care of the rerendering animations.
+
 ```tsx
 import { TextScramble } from "@a7sc11u/scramble";
 import useStore from "./store/store";
@@ -19,7 +23,7 @@ export default function DynamicText() {
 
   return (
     <TextScramble
-      className="bg-[#ef079b] bg-gradient-to-br text-transparent from-[#f8665d] via-[#f8665d] bg-clip-text"
+      className="..."
       as="span"
       text={text[tick]}
     />
