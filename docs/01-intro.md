@@ -18,13 +18,20 @@ It's important to have a scope of what the layers of abstraction exist between w
 
 [Three.js](https://threejs.org/), the next layer of abstraction, makes it simple to create 3D graphics with JavaScript classes. This makes it simple to create simple geometric shapes, such as cubes, spheres, among others.
 
-Naturally, Three.js takes an imperative coding approach, and what better than [React Three Fiber](https://docs.pmnd.rs/react-three-fiber/getting-started/introduction) to add the last layer of abstraction, where one can write simple React components with the familiar `jsx` code declaratively and achieve beautiful, modern, and interactive 3D components for the web.
+Naturally, Three.js takes an imperative coding approach, and what better than [React Three Fiber](https://docs.pmnd.rs/react-three-fiber/getting-started/introduction) (or R3F, in short) to add the last layer of abstraction, where one can write simple React components with the familiar `jsx` code declaratively and achieve beautiful, modern, and interactive 3D components for the web.
 
 ![Image](/img/optIns.png)
 
 ## An Overview of Shaders
 
-Some of the projects will lean heavily on shaders. Shaders are just a way of handling the rendering of certain objects in a very low-level-abstraction way, directly to the WebGL compiler. It is quite complex at, first, and it is compiled in the GLSL programming language.
+Some of the projects will lean heavily on shaders. Shaders are just a way of handling the rendering of certain objects in a very low-level-abstraction way, directly to the WebGL GLSL compiler. 
+
+:::tip
+Shaders can be complicated at first, but they're actually very visual!. Here's a quick look of a shader:
+:::
+
+<iframe height="550" width="100%"  scrolling="no" title=" Preview: GreenSock Ease Visualizer" src="http://editor.thebookofshaders.com/" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+</iframe>
 
 It is often used for particularly peculiar tasks that require a very surgical control of the rendering process. As Patricio Gonzalez put it in his book [The Book of Shaders](https://thebookofshaders.com):
 
