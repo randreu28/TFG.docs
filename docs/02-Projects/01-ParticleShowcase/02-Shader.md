@@ -36,6 +36,8 @@ We also need a way to change these geometries, as well as other aspects of the s
 A `uniform` is the bridge between the GLSL code and the tsx code. They are _parameters_ that are passed onto the shader and computed to create the effects we see on the screen.
 :::
 
+![Image](/img/uniforms.webp)
+
 These uniforms are then used to interpolate between the different geometries using the `mix` GLSL function.
 
 ```glsl
