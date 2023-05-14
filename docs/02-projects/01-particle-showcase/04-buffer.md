@@ -11,7 +11,7 @@ The `<Buffer/>` component is composed of two main aspects: The geometry and the 
 
 ## The shader material
 
-The material of this object is nothing like any other. Luckily, R3F allows us to create materials of our own, by creating a `shaderMaterial` and passing our own fragment and vertex shaders, as well as any uniforms we might pass onto them:
+The material of this object is nothing like any other. Luckily, R3F allows us to create materials of our own, by creating a `shaderMaterial` and passing our own fragment and vertex shaders, as well as any uniforms we might need:
 
 ```tsx
 import fragShader from "./shaders/fragment.glsl";
@@ -60,7 +60,7 @@ useFrame((state) => {
 
 ## The geometries
 
-Following up on what we talked about in the [shader](/docs/Projects/ParticleShowcase/Shader) section, the Buffer contains different `position` values, that store the different vertices that compose the geometry. For, that, R3F offers us **Computed Attributes**, which look like this:
+Following up on what we talked about in the [shader](/docs/projects/particle-showcase/shader) section, the Buffer contains different `position` values, that store the different vertices that compose the geometry. For, that, R3F offers us **Computed Attributes**, which look like this:
 
 ```tsx
 <ComputedAttribute
@@ -78,7 +78,7 @@ Following up on what we talked about in the [shader](/docs/Projects/ParticleShow
 />
 ```
 
-Great! Now we have the first geometry: The box. What about the cloud of points? Let's first create Float32Array from a simple cube
+Great! Now we have the first geometry: The box. What about the cloud of points? Let's first create Float32Array from a simple cube:
 
 ```tsx
 <ComputedAttribute
@@ -88,13 +88,13 @@ Great! Now we have the first geometry: The box. What about the cloud of points? 
     const geometry1 = new THREE.BoxGeometry(1, 1, 1, 16, 16, 16);
     // highlight-next-line
     const geometry2 = new Float32Array(geometry1.attributes.position.count * 3);
-    ...
+    //...
   }}
   usage={THREE.StaticReadUsage}
 />
 ```
 
-Now, in order to make those vertex _explode_ into a cloud of points, we need to randomize their position and return it as a `THREE.BufferAtribute`.
+Now, in order to make those vertex _explode_ into a cloud of points, we need to randomize their position and return it as a `THREE.BufferAtribute`:
 
 ```tsx
 <ComputedAttribute
@@ -115,7 +115,7 @@ Now, in order to make those vertex _explode_ into a cloud of points, we need to 
 ```
 
 :::info
-The `THREE.BufferAttribute` takes two arguments, the Float32 array, and the item size to decode it. As we're working with 3 dimensions (a.k.a `Vector3`'s), we use a 3.
+The `THREE.BufferAttribute` takes two arguments, the Float32 array, and the item size to decode it. As we're working with 3 dimensions (a.k.a `Vector3`'s), we declare as second parameter a `3`
 :::
 
 The rest of the models simply come from our `.glb` files and we compute them the same way:

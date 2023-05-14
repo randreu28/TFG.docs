@@ -1,12 +1,12 @@
 # Shader
 
 :::tip
-This section relies heavily on GLSL. I will cover only the essential parts. If you're unfamiliar with shaders and want to learn more, check out the [Book of shaders](https://thebookofshaders.com)
+This project relies heavily on GLSL. This documentation will cover only the essential parts. If you're unfamiliar with shaders and want to learn more, check out the [Book of shaders](https://thebookofshaders.com)
 :::
 
 If you've scouted around the `<Buffer/>` component, you will know that there is a lot going on. Let's try to make sense of it all before diving into the code.
 
-The reason why the component is called Buffer is that it works as a temporary "box" of information. Each 3D object has a lot of properties, such as its materials, its position and rotation relative to the 3D environment, its scale, and their opacity... But what we will focus here is on their geometry.
+The reason why the component is called Buffer is that it works as a temporary _"box"_ of information. Each 3D object has a lot of properties, such as its materials, its position and rotation relative to the 3D environment, its scale, and their opacity... But what we will focus here is on their geometry.
 The geometry of a 3D object consists of two things: Vertices and Fragments.
 
 :::info
