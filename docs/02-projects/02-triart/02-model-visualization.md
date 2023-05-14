@@ -29,7 +29,7 @@ function Model({ url }: Props) {
 As you might have noticed, the type-safety goes out the window once you don't have the information of the model you're working on. It's one of the rare cases where `any` is justified.
 :::
 
-This gives us 3 variables: the `defaultAnimationsControls`, which allow us to create the Leva controls later, the list of `animationClips` available, and the `mixer`, which takes care of handling the animations.
+This gives us 3 variables: the `defaultAnimationsControls`, which allow us to create the [Leva controls](/docs/common-libraries#leva-controls) later, the list of `animationClips` available, and the `mixer`, which takes care of handling the animations.
 
 Now let us not forget that the `THREE.AnimationMixer` needs to be updated with the frame rate of our `<Canvas/>`, so we use the `useFrame` hook from R3F to keep it updated:
 

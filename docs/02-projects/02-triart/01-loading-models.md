@@ -26,7 +26,7 @@ The `id` is the unique key of each row, and the `user_id` is the foreign key tha
 
 ## Server Side loading and validation
 
-If you visit https://tfg-triart.vercel.app/artwork/32,for example, you'll notice that the URL structure takes the parameter `id` (in this case, 32) to select and display the chosen artwork.
+If you visit https://tfg-triart.vercel.app/artwork/32, for example, you'll notice that the URL structure takes the parameter `id` (in this case, 32) to select and display the chosen artwork.
 This, in combination with React Server Components of Next13, allows us to load the chosen artwork and handle the visibility status validation, without any line running on the client:
 
 ```tsx

@@ -17,7 +17,7 @@ password: secret
 :::caution
 This is a Full-Stack application. For security reasons, the environment variables needed to access the database are not public access.
 
-To run this locally, either create your [supabase database](https://supabase.com/)](https://supabase.com/) instance or ask for the private keys at randreu28@gmail.com
+To run this locally, either create your [supabase database](https://supabase.com/) instance or ask for the private keys at randreu28@gmail.com
 :::
 
 ```bash
@@ -34,5 +34,5 @@ TriArt is a platform where you can upload your 3D artwork and share them with th
 This project was made with [Next13](https://nextjs.org/), with the app directory. The styling was done with [TailwindCSS](https://tailwindcss.com/) and [HeadlessUI](https://headlessui.com/), and the database with [Supabase](https://supabase.com/). All of these pieces work together to make the project possible, but the aspect we will focus on will be the 3D side of it.
 
 :::tip
-You don't need to know all of these technologies to follow along. Whenever there are things specific to these tech stacks, I'll go over them. What I'm interested is in explaining the decision-making of it all, not the intricacies of my chosen stack.
+You don't need to know all of these technologies to follow along. Whenever there are things specific to these tech stacks, We'll go over them. This documentation's goal is on explaining the decision-making of it all, not the intricacies of the chosen stack.
 :::
