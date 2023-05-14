@@ -1,7 +1,0 @@
-# Shader
-
-## Vertex
-
-## Fragment
-
-## ShaderToy
