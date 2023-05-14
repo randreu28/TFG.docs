@@ -54,7 +54,7 @@ For this, it is as simple as creating a state that the `<Intro/>` component will
 
 ## Mirror material
 
-Before going `<MyScene/>` component, let's explore how the mirror material looks like. Luckily, R3F offers us a reflector material with some props to configure to get the desired effect. To do so, the use of [Leva controls](/docs/03-CommonLibraries.md) was paramount. In matters like this, it is all about quick iterations and trial and error, and Leva excels at that.
+Before discussing the `<MyScene/>` component, let's explore how the mirror material looks like. Luckily, R3F offers us a reflector material with some props to configure to get the desired effect. To do so, the use of [Leva controls](/docs/common-libraries#leva-controls) was paramount. In matters like this, it is all about quick iterations and trial and error, and Leva excels at that.
 
 ```tsx
 import { MeshReflectorMaterial } from "@react-three/drei";
@@ -201,3 +201,13 @@ Lastly, with the help of [React-Postprocessing](https://docs.pmnd.rs/react-postp
   />
 </EffectComposer>
 ```
+
+:::tip
+You can play around with the `<Glitch/>` props to see how they modify the effect on this playground:
+:::
+
+<iframe src="https://codesandbox.io/embed/glitch-demo-bs1i1?fontsize=14&hidenavigation=1&theme=dark" width="100%" height="500"
+     title="Glitch Demo"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   />
