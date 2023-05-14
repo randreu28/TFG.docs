@@ -1,8 +1,6 @@
 # An introduction
 
-Welcome to the documentation of my bachelor's thesis. Feel free to check it out!
-
-The thesis is about the creation of a gallery of interactive applications with 3D components. This documentation will walk you through the different projects that I worked on, as well as the implementation and the decision-making of all the technological architecture.
+Hello! My name is [Rubén Chiquin](randreu.dev) and welcome to the documentation of my bachelor's thesis. The thesis is about the creation of a gallery of interactive applications with 3D components. This documentation will walk you through the different projects that I worked on, as well as the implementation and the decision-making of all the technological architecture. Feel free to check it out!
 
 Before diving into the projects, we should first discuss the tech stack that we'll be using and a bit about them.
 
@@ -12,7 +10,7 @@ You don't need to know about 3D engines of any of that sort. However, this docum
 
 ## The tech stack
 
-It's important to have a scope of what the layers of abstraction exist between what we write and what we see on the screen. In our case, we start with WebGL, the standard way of having 3D graphics on our navigators(at least until [WebGPU](https://developer.chrome.com/blog/webgpu-release/) takes over).
+It's important to have a scope of what the layers of abstraction exist between what we write and what we see on the screen. In our case, we start with WebGL, the standard way of having 3D graphics on our navigators (at least until [WebGPU](https://developer.chrome.com/blog/webgpu-release/) takes over).
 
 [WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API) offers very low-level control over the rendering process, and it is all encapsulated in the familiar HTML `<canvas>` element.
 
@@ -24,7 +22,7 @@ Naturally, Three.js takes an imperative coding approach, and what better than [R
 
 ## An Overview of Shaders
 
-Some of the projects will lean heavily on shaders. Shaders are just a way of handling the rendering of certain objects in a very low-level-abstraction way, directly to the WebGL GLSL compiler. 
+Some of the projects will lean heavily on shaders. Shaders are just a way of handling the rendering of certain objects in a very low-level-abstraction way, directly to the WebGL GLSL compiler.
 
 :::tip
 Shaders can be complicated at first, but they're actually very visual! Here's a quick look of a shader:
@@ -32,7 +30,6 @@ Shaders can be complicated at first, but they're actually very visual! Here's a 
 
 <iframe height="550" width="100%"  title="Shaders" src="https://actarian.github.io/vscode-glsl-canvas/?glsl=buffers
 " frameBorder="no" loading="lazy"/>
-
 
 It is often used for particularly peculiar tasks that require a very surgical control of the rendering process. As Patricio Gonzalez put it in his book [The Book of Shaders](https://thebookofshaders.com):
 
@@ -42,7 +39,7 @@ It is often used for particularly peculiar tasks that require a very surgical co
 
 ## What does a React 3D component look like?
 
-Fortunately, not everything will require to be handled in GLSL. React-three-fiber can greatly help us simplify the interactivity and rendering process. I'll take a great example from React Three Fiber. If you're familiar with React, this will look familiar:
+Fortunately, not everything will require to be handled in GLSL. React-three-fiber can greatly help us simplify the interactivity and rendering process. I'll take a great example from React Three Fiber. If you're used to React, this will look familiar:
 
 ```tsx
 import { createRoot } from "react-dom/client";
@@ -85,6 +82,8 @@ createRoot(document.getElementById("root")).render(
 
 :::tip
 Do you want to try it yourself? Check out this sandbox:
-:::
 
 [![Image](/img/basic-app.gif)](https://codesandbox.io/s/icy-tree-brnsm?file=/src/App.tsx)
+:::
+
+
