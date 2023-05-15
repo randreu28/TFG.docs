@@ -161,7 +161,7 @@ export default function Shader({ stream }: Props) {
 }
 ```
 
-![freq-analyzer](/img/frequency-analyzer.svg)
+![freq-analyzer](/img/frequency-analyzer.jpg)
 
 Then, we make use of the custom R3F hook `useFrame` to update the uniforms in every frame. That is when the audio-to-texture interpolation occurs:
 
