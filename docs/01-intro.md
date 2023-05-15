@@ -1,6 +1,6 @@
 # An introduction
 
-Hello! My name is [Rubén Chiquin](randreu.dev) and welcome to the documentation of my bachelor's thesis. The thesis is about the creation of a gallery of interactive applications with 3D components. This documentation will walk you through the different projects that I worked on, as well as the implementation and the decision-making of all the technological architecture. Feel free to check it out!
+Hello! My name is [Rubén Chiquin](https://randreu.dev) and welcome to the documentation of my bachelor's thesis. The thesis is about the creation of a gallery of interactive applications with 3D components. This documentation will walk you through the different projects that I worked on, as well as the implementation and the decision-making of all the technological architecture. Feel free to check it out!
 
 Before diving into the projects, we should first discuss the tech stack that we'll be using and a bit about them.
 
