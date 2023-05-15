@@ -49,7 +49,7 @@ In case you are not familiar with shaders, it is recommended that you've read th
 
 The `<Shader/>` component is a simple `<Plane/>` geometry that occupies the whole viewport, and the custom shader material.
 
-```tsx title="/src/components/Shadert.tsx"
+```tsx title="/src/components/Shader.tsx"
 <Plane
   ref={ref}
   args={[
@@ -143,7 +143,7 @@ Notice that the textures from the `iChannels` come from `activeTextures`. This c
 
 The leva controls presets offer the user the possibility to interchange between the textures, but there are some presets that the user could select.
 
-```tsx title="Leva textures"
+```tsx
 const [activeTextures, setActiveTextures] = useControls("Textures", () => ({
   //highlight-start
   iChannel0: {
@@ -164,7 +164,7 @@ const [activeTextures, setActiveTextures] = useControls("Textures", () => ({
 
 This already gives the user the ability to get all the combinations possible, but we'd like to create specific combination presets for the users to see:
 
-```tsx title="Leva presets for the textures"
+```tsx
 const [activeTextures, setActiveTextures] = useControls("Textures", () => ({
   iChannel0: {
     value: 0,
@@ -211,3 +211,5 @@ const [activeTextures, setActiveTextures] = useControls("Textures", () => ({
   //highlight-end
 }));
 ```
+
+This way, the user can have a set of predefined texture combinations easily with the click of a button.
