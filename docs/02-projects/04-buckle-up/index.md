@@ -44,7 +44,7 @@ Let's take a look at how the app is structured:
 ## Shader uniforms
 
 :::tip
-It is recommended that you've read the [Particle showcase project](/docs/projects/particle-showcase/shader), as it gives the base understanding of shaders.
+In case you are not familiar with shaders, it is recommended that you've read the [Particle showcase project](/docs/projects/particle-showcase/shader), as it gives the base understanding of them.
 :::
 
 The `<Shader/>` component is a simple `<Plane/>` geometry that occupies the whole viewport, and the custom shader material.
@@ -144,7 +144,6 @@ Notice that the textures from the `iChannels` come from `activeTextures`. This c
 The leva controls presets offer the user the possibility to interchange between the textures, but there are some presets that the user could select.
 
 ```tsx title="Leva textures"
-
 const [activeTextures, setActiveTextures] = useControls("Textures", () => ({
   //highlight-start
   iChannel0: {
