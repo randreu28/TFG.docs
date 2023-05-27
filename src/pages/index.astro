@@ -1,0 +1,38 @@
+---
+import { getCollection } from "astro:content";
+
+const projects = await getCollection("projects");
+const posts = await Astro.glob("./index.md");
+const Content = posts[0].Content;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Astro description" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>TFG-docs</title>
+    </head>
+    <body
+        class="prose prose-invert prose-cyan mx-auto max-w-3xl py-10 font-mono"
+    >
+        <Content />
+
+        <ul>
+            {
+                projects.map((project) => {
+                    return <li>{project.data.title}</li>;
+                })
+            }
+        </ul>
+
+        <style>
+            :root {
+                color-scheme: dark;
+            }
+        </style>
+    </body>
+</html>
