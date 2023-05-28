@@ -1,0 +1,27 @@
+<nav class="mx-auto flex justify-between border-b p-5 lg:w-3/4">
+    <a href="/">
+        <h1 class="text-lg">TFG Docs</h1>
+        <p class="text-sm">by Rubén Chiquin</p>
+    </a>
+
+    <button class="flex items-end text-sm print:hidden" id="themeToggle">
+        Turn off the lights
+    </button>
+</nav>
+
+<script>
+    function switchLight() {
+        if (!document.documentElement.classList.contains("dark")) {
+            document.documentElement.classList.add("dark");
+            button.textContent = "Turn on the lights";
+            localStorage.theme = "dark";
+        } else {
+            button.textContent = "Turn off the lights";
+            document.documentElement.classList.remove("dark");
+            localStorage.theme = "light";
+        }
+    }
+
+    const button = document.getElementById("themeToggle")!;
+    button.onclick = switchLight;
+</script>
