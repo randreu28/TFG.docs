@@ -4,6 +4,7 @@ type Props = {
 };
 
 const { title } = Astro.props;
+import Footer from "../components/Footer.astro";
 import NavBar from "../components/NavBar.astro";
 const isDark = Astro.cookies.get("theme").value === "dark";
 ---
@@ -25,6 +26,7 @@ const isDark = Astro.cookies.get("theme").value === "dark";
         <div class="prose prose-cyan mx-auto max-w-3xl p-10 dark:prose-invert">
             <slot />
         </div>
+        <Footer />
     </body>
 
     <style>

@@ -2,7 +2,9 @@
 const isDark = Astro.cookies.get("theme").value === "dark";
 ---
 
-<nav class="mx-auto flex justify-between border-b p-5 lg:w-3/4">
+<nav
+    class="mx-auto flex justify-between border-b border-gray-200 p-5 dark:border-gray-600 lg:w-3/4"
+>
     <a href="/">
         <h1 class="text-lg">TFG Docs</h1>
         <p class="text-sm">by Rubén Chiquin</p>
