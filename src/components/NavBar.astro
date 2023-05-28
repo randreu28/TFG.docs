@@ -1,3 +1,7 @@
+---
+const isDark = Astro.cookies.get("theme").value === "dark";
+---
+
 <nav class="mx-auto flex justify-between border-b p-5 lg:w-3/4">
     <a href="/">
         <h1 class="text-lg">TFG Docs</h1>
@@ -5,7 +9,7 @@
     </a>
 
     <button class="flex items-end text-sm print:hidden" id="themeToggle">
-        Turn off the lights
+        Turn {isDark ? "on" : "off"} the lights
     </button>
 </nav>
 
@@ -14,11 +18,11 @@
         if (!document.documentElement.classList.contains("dark")) {
             document.documentElement.classList.add("dark");
             button.textContent = "Turn on the lights";
-            localStorage.theme = "dark";
+            document.cookie = "theme=dark";
         } else {
             button.textContent = "Turn off the lights";
             document.documentElement.classList.remove("dark");
-            localStorage.theme = "light";
+            document.cookie = "theme=light";
         }
     }
 

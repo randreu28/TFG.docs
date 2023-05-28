@@ -5,9 +5,10 @@ type Props = {
 
 const { title } = Astro.props;
 import NavBar from "../components/NavBar.astro";
+const isDark = Astro.cookies.get("theme").value === "dark";
 ---
 
-<html lang="en">
+<html lang="en" class={isDark ? "dark" : "light"}>
     <head>
         <meta charset="UTF-8" />
         <meta
