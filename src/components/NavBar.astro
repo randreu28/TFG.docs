@@ -3,31 +3,31 @@ const isDark = Astro.cookies.get("theme").value === "dark";
 ---
 
 <nav
-    class="mx-auto flex justify-between border-b border-gray-200 p-5 dark:border-gray-600 lg:w-3/4"
+  class="mx-auto flex justify-between border-b border-gray-200 p-5 dark:border-gray-600 lg:w-3/4"
 >
-    <a href="/">
-        <h1 class="text-lg">TFG Docs</h1>
-        <p class="text-sm">by Rubén Chiquin</p>
-    </a>
+  <a href="/">
+    <h1 class="text-lg">TFG Docs</h1>
+    <p class="text-sm">by Rubén Chiquin</p>
+  </a>
 
-    <button class="flex items-end text-sm print:hidden" id="themeToggle">
-        Turn {isDark ? "on" : "off"} the lights
-    </button>
+  <button class="flex items-end text-sm print:hidden" id="themeToggle">
+    Turn {isDark ? "on" : "off"} the lights
+  </button>
 </nav>
 
 <script>
-    function switchLight() {
-        if (!document.documentElement.classList.contains("dark")) {
-            document.documentElement.classList.add("dark");
-            button.textContent = "Turn on the lights";
-            document.cookie = "theme=dark";
-        } else {
-            button.textContent = "Turn off the lights";
-            document.documentElement.classList.remove("dark");
-            document.cookie = "theme=light";
-        }
+  function switchLight() {
+    if (!document.documentElement.classList.contains("dark")) {
+      document.documentElement.classList.add("dark");
+      button.textContent = "Turn on the lights";
+      document.cookie = "theme=dark;path=/";
+    } else {
+      button.textContent = "Turn off the lights";
+      document.documentElement.classList.remove("dark");
+      document.cookie = "theme=light;path=/";
     }
+  }
 
-    const button = document.getElementById("themeToggle")!;
-    button.onclick = switchLight;
+  const button = document.getElementById("themeToggle")!;
+  button.onclick = switchLight;
 </script>
