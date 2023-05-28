@@ -3,6 +3,8 @@ import { getCollection } from "astro:content";
 const projects = await getCollection("projects");
 ---
 
+<h2>Contents</h2>
+
 <ul>
   {
     projects.map((project) => {
