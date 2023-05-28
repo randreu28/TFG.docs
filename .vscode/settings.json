@@ -1,3 +1,9 @@
 {
-  "editor.defaultFormatter": "astro-build.astro-vscode"
+  "editor.defaultFormatter": "astro-build.astro-vscode",
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
