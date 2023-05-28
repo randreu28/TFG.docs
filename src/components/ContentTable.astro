@@ -24,7 +24,7 @@ const projects = await getCollection("projects");
 
         return (
           <li>
-            {project.data.title}
+            <a href={"/projects/" + project.slug}> {project.data.title}</a>
             <ul>
               {subProjects.map((subProject) => {
                 return (
