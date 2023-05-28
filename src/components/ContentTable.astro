@@ -4,9 +4,43 @@ const projects = await getCollection("projects");
 ---
 
 <ul>
-    {
-        projects.map((project) => {
-            return <li>{project.data.title}</li>;
-        })
-    }
+  {
+    projects.map((project) => {
+      if (project.slug.includes("/")) {
+        return;
+      }
+
+      const subFoldersCount = projects.filter((otherProjects) =>
+        otherProjects.slug.includes(project.slug)
+      ).length;
+
+      if (subFoldersCount !== 1) {
+        const subProjects = projects.filter(
+          (theProjects) =>
+            theProjects.slug.includes(project.slug) && theProjects !== project
+        );
+
+        return (
+          <li>
+            {project.data.title}
+            <ul>
+              {subProjects.map((subProject) => {
+                return (
+                  <a href={"/projects/" + subProject.slug}>
+                    <li>{subProject.data.title}</li>
+                  </a>
+                );
+              })}
+            </ul>
+          </li>
+        );
+      }
+
+      return (
+        <a href={"/projects/" + project.slug}>
+          <li>{project.data.title}</li>
+        </a>
+      );
+    })
+  }
 </ul>
