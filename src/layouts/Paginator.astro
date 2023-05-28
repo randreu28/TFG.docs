@@ -1,0 +1,40 @@
+---
+import { getCollection } from "astro:content";
+
+type Props = {
+  id: string;
+};
+
+const { id } = Astro.props;
+const projects = await getCollection("projects");
+
+const index = projects.findIndex((project) => project.id === id);
+---
+
+<slot />
+
+<div class="mt-32 grid grid-cols-3 items-center justify-between">
+  {
+    index - 1 >= 0 ? (
+      <span class="!space-y-0">
+        <a href={"/projects/" + projects[index - 1].slug}>Previous</a>
+        <p class="line-clamp-1">{projects[index - 1].data.title}</p>
+      </span>
+    ) : (
+      <a />
+    )
+  }
+  <a href="/" class="text-center">Home</a>
+  {
+    index + 1 < projects.length ? (
+      <span class="!space-y-0 text-right">
+        <a class="" href={"/projects/" + projects[index + 1].slug}>
+          Next
+        </a>
+        <p class="line-clamp-1">{projects[index + 1].data.title}</p>
+      </span>
+    ) : (
+      <a />
+    )
+  }
+</div>
