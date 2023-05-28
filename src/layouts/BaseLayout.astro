@@ -1,0 +1,33 @@
+---
+type Props = {
+    title: string;
+};
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="description"
+            content="A bachelor's thesis on 3D components"
+        />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+    </head>
+    <body
+        class="prose prose-invert prose-cyan mx-auto max-w-3xl p-10 font-mono"
+    >
+        <slot />
+
+        <style>
+            :root {
+                color-scheme: dark;
+            }
+        </style>
+    </body>
+</html>
