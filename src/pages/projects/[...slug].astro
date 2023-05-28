@@ -1,17 +1,17 @@
 ---
 import type {
-    GetStaticPaths,
-    InferGetStaticParamsType,
-    InferGetStaticPropsType,
+  GetStaticPaths,
+  InferGetStaticParamsType,
+  InferGetStaticPropsType,
 } from "astro";
 import { getCollection, getEntry } from "astro:content";
 
 export const getStaticPaths = (async () => {
-    const projects = await getCollection("projects");
-    return projects.map((project) => ({
-        params: { slug: project.slug },
-        props: { title: project.data.title },
-    }));
+  const projects = await getCollection("projects");
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { title: project.data.title },
+  }));
 }) satisfies GetStaticPaths;
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
@@ -26,23 +26,23 @@ const { Content } = await project.render();
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="description" content="Astro description" />
-        <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="generator" content={Astro.generator} />
-        <title>{title}</title>
-    </head>
-    <body
-        class="prose prose-invert prose-cyan mx-auto max-w-3xl py-10 font-mono lg:prose-xl"
-    >
-        <Content />
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body
+    class="prose prose-invert prose-cyan mx-auto max-w-3xl py-10 font-mono lg:prose-xl"
+  >
+    <Content />
+  </body>
 
-    <style>
-        :root {
-            color-scheme: dark;
-        }
-    </style>
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+  </style>
 </html>
