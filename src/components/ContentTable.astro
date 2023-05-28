@@ -1,0 +1,12 @@
+---
+import { getCollection } from "astro:content";
+const projects = await getCollection("projects");
+---
+
+<ul>
+    {
+        projects.map((project) => {
+            return <li>{project.data.title}</li>;
+        })
+    }
+</ul>

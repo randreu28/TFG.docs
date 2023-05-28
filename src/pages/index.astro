@@ -1,7 +1,6 @@
 ---
-import { getCollection } from "astro:content";
+import ContentTable from "../components/ContentTable.astro";
 
-const projects = await getCollection("projects");
 const posts = await Astro.glob("./index.md");
 const Content = posts[0].Content;
 ---
@@ -21,13 +20,7 @@ const Content = posts[0].Content;
     >
         <Content />
 
-        <ul>
-            {
-                projects.map((project) => {
-                    return <li>{project.data.title}</li>;
-                })
-            }
-        </ul>
+        <ContentTable />
 
         <style>
             :root {
