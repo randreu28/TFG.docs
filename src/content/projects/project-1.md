@@ -1,8 +1,8 @@
 ---
-title: Project 2
+title: Project 1
 ---
 
-# Project 2
+# Project 1
 
 This Markdown file creates a page
 
