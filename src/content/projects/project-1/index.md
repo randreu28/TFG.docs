@@ -1,8 +1,8 @@
 ---
-title: Project 1
+title: Index project 1
 ---
 
-# Project 1
+# Index project 1
 
 This Markdown file creates a page at `your-domain.com/page-1/`
 
