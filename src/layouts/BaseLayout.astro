@@ -24,7 +24,9 @@ const isDark = Astro.cookies.get("theme").value === "dark";
   </head>
   <body class="font-mono">
     <NavBar />
-    <div class="prose prose-cyan mx-auto max-w-3xl p-10 dark:prose-invert">
+    <div
+      class="prose prose-cyan prose-quoteless mx-auto max-w-3xl p-10 dark:prose-invert"
+    >
       <slot />
     </div>
     <Footer />
