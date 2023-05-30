@@ -1,13 +1,17 @@
 ---
-title: TODO
+title: Dynamic text
 pagination: 2.2
 ---
 
-# Dynamic text
+# 2.2 Dynamic text
 
-The dynamic text component relys on the [scrambleUI](/docs/common-libraries#a7sc11uscramble) library.
+The dynamic text component in this project utilizes the [scrambleUI](/docs/common-libraries#a7sc11uscramble) library.for the text animations. To implement this, we cycle between different texts based on the tick state, which determines the speed at which the buffer changes its geometry.
 
-From the `<Buffer/>` component, we cycle between the tick state, which is what marks the speed at which the buffer changes of geometry. We used a simple [zustand](/docs/common-libraries#zustand--jotai) store (Similiar to Redux) to get it and we attach it to the `<TextScramble/>` component that takes care of the rerendering animations.
+To access the tick state, a [Zustand](/docs/common-libraries#zustand) store (similar to Redux) is used. The tick value is obtained from the store using the useStore hook. This tick value is then used to retrieve the corresponding text from an object of text values.
+
+The `useControls` hook from the [leva](/docs/common-libraries#leva) library is used to define the texts and their initial values in a control panel.
+
+As seen beolow, the `<TextScramble/>` component receives the className prop for styling purposes, the as prop to specify the HTML element to be rendered, and the text prop, which is set to the current text based on the tick value:
 
 ```tsx
 import { TextScramble } from "@a7sc11u/scramble";
