@@ -1,19 +1,20 @@
 ---
-title: TODO
+title: Mirror effect
 pagination: 04
 ---
 
-# Mirror effect
+# 4 Mirror effect
 
-> An experimental reflective mirror cloud with post-processing effects
+[![Image](/img/mirrorEffect.png)](https://tfg-mirror-effect.vercel.app/)
 
-:::info
-Check out the live version [here](https://tfg-mirror-effect.vercel.app/). Press alt + h to hide the controls!
-:::
+<div class="flex justify-between w-full">
+  <a href="https://github.com/randreu28/TFG.mirror-effect">Repository</a>
+  <a href="https://tfg-mirror-effect.vercel.app/">Live version</a>
+</div>
 
-[![image](/img/mirrorEffect.png)](https://tfg-mirror-effect.vercel.app/)
+## 4.1 Installation
 
-## Installation
+To set up the project, follow these installation steps:
 
 ```bash
 git clone https://github.com/randreu28/TFG.mirror-effect
@@ -22,24 +23,24 @@ yarn install
 yarn dev
 ```
 
-## Overview
+## 4.2 Overview
 
 This project was meant to be an exploratory approach to reflections. The idea behind it was to play around with some mirrors and try to get an interesting effect on them. I used a Roman statue from the artist [engine9](https://sketchfab.com/engine9) that helped me get the style I aimed for.
 
-## Consent bypass
+## 4.3 Consent bypass
 
-As the project ended up becoming very _artistic_, I decided to add an intro message before the actual scene. Let's see how this looks like:
+As the project ended up becoming very _artistic_ iIt was decided to add an intro message before the actual scene. For that the app had a consent bypass that unclocked the main App once the user interacted with the `<Intro/>` component:
 
 ```tsx
 export default function App() {
   ...
-  //highlight-start
+
   const [consent, setConsent] = useState<boolean>(false);
 
   if (!consent) {
     return <Intro setConsent={setConsent} />;
   }
-  //highlight-end
+
 
   return (
     <>
@@ -55,11 +56,9 @@ export default function App() {
 }
 ```
 
-For this, it is as simple as creating a state that the `<Intro/>` component will use to go show the `<Scene/>` once the user gives consent.
+## 4.4 Mirror material
 
-## Mirror material
-
-Before discussing the `<MyScene/>` component, let's explore how the mirror material looks like. Luckily, R3F offers us a reflector material with some props to configure to get the desired effect. To do so, the use of [Leva controls](/docs/common-libraries#leva-controls) was paramount. In matters like this, it is all about quick iterations and trial and error, and Leva excels at that.
+Before discussing the `<MyScene/>` component, we'll explore how the mirror material's implementation was achieved. Luckily, R3F offers us a reflector material with some props to configure to get the desired effect. To do so, the use of [Leva controls](/docs/common-libraries#leva-controls) was paramount. In matters like this, it is all about quick iterations and trial and error, and Leva excels at that:
 
 ```tsx
 import { MeshReflectorMaterial } from "@react-three/drei";
@@ -91,19 +90,19 @@ export default function Mirror(props: JSX.IntrinsicElements["mesh"]) {
 }
 ```
 
-## Mirror generation
+## 4.5 Mirror generation
 
 For the positioning of the mirror, the mirrors were initially placed according to the vertices of an Icosaedron geometry. Each vertex was the center of the geometry, alongside their Euler angle. Each mirror _looked at_ the center of the Icoshaderon. Take, for example, the Three.js example of the Icosahedron and try to imagine the coordinates of each vertex:
 
 <iframe src="https://threejs.org/docs/scenes/geometry-browser.html#IcosahedronGeometry" width="100%" height="500"/>
 
-:::tip
-The **Euler angles**, in contrast to the common radiant angles, describe a rotational transformation by rotating an object on its various axes in specified amounts per axis, and a specified axis order.
+<br/> <br/>
 
-![Euler](/img/Euler2.gif)
-:::
+> The **Euler angles**, in contrast to the common radiant angles, describe a rotational transformation by rotating an object on its various axes in specified amounts per axis, and a specified axis order.
 
-Let's take a look at how this is done in React. First, we need a function to generate the mirror cloud based on a float32Array:
+<img class="mx-auto" src="/img/Euler2.gif" size="50%" width="50%"/>
+
+Let us now examine how this process is accomplished within the React ecosystem. First, we need a function to generate the mirror cloud based on a float32Array:
 
 ```tsx
 /**
@@ -165,14 +164,13 @@ return (
 }
 ```
 
-## Animations
+## 4.6 Animations
 
-The animations of the mirror cloud are rather simple. We take advantage of the `Math.sin()` to create a waving effect to the y-axis of the `Vector3` of the whole group, as well as their Euler rotation.
-:::info
-The sinus animation is perfect for creating simple _floating_ animations, as they are infinite and require almost no effort to code up the algorithm.
+The animations of the mirror cloud are relatively straightforward. We utilize the `Math.sin()` function to generate a waving effect along the y-axis of the `Vector3` for the entire group, as well as their `Euler` rotation.
+
+> The sinus animation is ideal for producing straightforward "floating" animations, as they are infinite in nature and require minimal effort to implement using the algorithm.
 
 ![image](/img/sin.gif)
-:::
 
 ```tsx
 const mirrorGroup = useRef<THREE.Group>(null!);
@@ -184,16 +182,15 @@ useFrame((state) => {
 
   currentPosition.set(
     currentPosition.x,
-    //highlight-next-line
     currentPosition.y + Math.sin(t) * 0.005,
     currentPosition.z
   );
-  //highlight-next-line
+
   currentRotation.set(t * 0.025, t * 0.025, t * 0.025);
 });
 ```
 
-## Post-processing
+## 4.7 Post-processing
 
 Lastly, with the help of [React-Postprocessing](https://docs.pmnd.rs/react-postprocessing/introduction), we will include some glitch effects:
 
@@ -207,9 +204,7 @@ Lastly, with the help of [React-Postprocessing](https://docs.pmnd.rs/react-postp
 </EffectComposer>
 ```
 
-:::tip
-You can play around with the `<Glitch/>` props to see how they modify the effect on this playground:
-:::
+You may experiment with the `<Glitch/>` props to see how they modify the effect on this playground:
 
 <iframe src="https://codesandbox.io/embed/glitch-demo-bs1i1?fontsize=14&hidenavigation=1&theme=dark" width="100%" height="500"
      title="Glitch Demo"
