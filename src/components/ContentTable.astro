@@ -5,7 +5,7 @@ const projects = await getCollection("projects");
 
 <h2>Contents</h2>
 
-<ul>
+<ol>
   {
     projects.map((project) => {
       if (project.slug.includes("/")) {
@@ -25,24 +25,39 @@ const projects = await getCollection("projects");
         return (
           <li>
             <a href={"/projects/" + project.slug}> {project.data.title}</a>
-            <ul>
+            <ol>
               {subProjects.map((subProject) => {
                 return (
-                  <a href={"/projects/" + subProject.slug}>
-                    <li>{subProject.data.title}</li>
-                  </a>
+                  <li>
+                    <a href={"/projects/" + subProject.slug}>
+                      {subProject.data.title}
+                    </a>
+                  </li>
                 );
               })}
-            </ul>
+            </ol>
           </li>
         );
       }
 
       return (
-        <a href={"/projects/" + project.slug}>
-          <li>{project.data.title}</li>
-        </a>
+        <li>
+          <a href={"/projects/" + project.slug}>{project.data.title}</a>
+        </li>
       );
     })
   }
-</ul>
+</ol>
+
+<style>
+  ol {
+    counter-reset: item;
+  }
+  li {
+    display: block;
+  }
+  li:before {
+    content: counters(item, ".") " ";
+    counter-increment: item;
+  }
+</style>
