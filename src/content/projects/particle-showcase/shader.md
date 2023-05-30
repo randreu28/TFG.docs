@@ -1,30 +1,32 @@
 ---
-title: TODO
+title: The Shader
 pagination: 2.1
 ---
 
-# Shader
+# 2.1 The Shader
 
-:::tip
-This project relies heavily on GLSL. This documentation will cover only the essential parts. If you're unfamiliar with shaders and want to learn more, check out the [Book of shaders](https://thebookofshaders.com)
-:::
+> This project heavily relies on GLSL (OpenGL Shading Language) for its rendering and interactivity. In this documentation, we will cover the essential aspects of the shader code. If you are new to shaders and would like to learn more, I recommend checking out the [Book of shaders](https://thebookofshaders.com) for a comprehensive introduction.
 
-If you've scouted around the `<Buffer/>` component, you will know that there is a lot going on. Let's try to make sense of it all before diving into the code.
+If you have scouted around the `<Buffer/>` component, you may have noticed that there a lot of elements orchestrating it. Let's try to understand it before diving into the code.
 
-The reason why the component is called Buffer is that it works as a temporary _"box"_ of information. Each 3D object has a lot of properties, such as its materials, its position and rotation relative to the 3D environment, its scale, and their opacity... But what we will focus here is on their geometry.
-The geometry of a 3D object consists of two things: Vertices and Fragments.
+The component is named "Buffer" because it serves as a temporary container of information. In the context of 3D objects, each object has various properties such as materials, position, rotation, scale, and opacity. However, in this discussion, we will focus on the object's geometry.
 
-:::info
-**Vertices** are 3D points in space. They don't occupy real space, and they only function as connectors for the **Fragments**, which are what connect the vertices from one another, and paint pixels on the screen.
-:::
+The geometry of a 3D object consists of two key elements: vertices and fragments.
 
-This component is all about the Vertices, as they are particles, little dots in space that aren't connected between one another directly.
+- **Vertices** are 3D points in space. They do not occupy physical space themselves but serve as connectors for the fragments.
 
-<img src="/img/shaderExplanation.png" size="50%" width="50%"/>
+- **Fragments** connect the vertices and are responsible for painting pixels on the screen.
+  In this component, the emphasis is on the vertices, which are represented as particles or small dots in space. These particles are not directly connected to each other like traditional geometry; instead, they exist independently.
+
+Now let's explore the code and dive deeper into the implementation of the shader.
+
+<img class="mx-auto" src="/img/shaderExplanation.png" size="50%" width="50%"/>
 
 The vertices are saved in a [Float32Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array), which saves thousands of numbers that are later decoded into what you see, in an attribute called `position`.
 
-Now, our `<Buffer/>` is really not just one object, is it? It is rather all of them, but it changes every x time. So what I did was to have a box, where I initially declared different _positions_, a.k.a different objects: A lightbulb, a chess piece, a box... and I interchanged between these positions:
+In our implementation, the `<Buffer/>` component represents not just a single object, but rather a collection of objects that change over time. To achieve this, we utilize a box-like structure where we define different positions for various objects such as a lightbulb, a chess piece, a box, etc. These positions are then interchanged dynamically.
+
+Within the shader code, we declare attributes to represent these different geometries, like so:
 
 ```glsl title="src/shader/vertex.glsl"
 attribute vec3 position; // Box geometry
@@ -35,15 +37,13 @@ attribute vec3 position5; // Chess piece
 ...
 ```
 
-We also need a way to change these geometries, as well as other aspects of the shader, such as the particle size, color, transparency, speed... And for that, we use **uniforms**, which will be changed on our tsx code as you normally would.
+The purpose of these attributes is to allow us to change the geometries of the objects dynamically. Additionally, we also want to modify other aspects of the shader, such as particle size, color, transparency, and speed. To achieve this, we use uniforms, which can be modified from our TSX code as usual.
 
-:::info
-A `uniform` is the bridge between the GLSL code and the tsx code. They are _parameters_ that are passed onto the shader and computed to create the effects we see on the screen.
-:::
+> It's important to note that a `uniform` serves as a bridge between the GLSL code and the TSX code. They act as parameters that are passed into the shader and computed to create the visual effects we observe on the screen.
 
 ![Image](/img/uniforms.webp)
 
-These uniforms are then used to interpolate between the different geometries using the `mix` GLSL function.
+These uniforms are then used to interpolate between the different geometries using the `mix` GLSL function:
 
 ```glsl
 //Cycles between geometries
@@ -55,13 +55,15 @@ vec3 switchGeometry = mix(position2, switchGeometry1, randomState);
 
 Think of the mix function as a scale. The first two parameters are both sides of the scale. The third value (a number between 0 and 1) is what determines how left or how right will the balance end up going.
 
-<img src="/img/mixer.png" size="80%" width="80%"/>
+<img src="/img/mixer.png" size="100%" width="100%"/>
 
-Finally, we add some idle animations to the geometries, as it is what makes the geometry look organic and alive. For that, we will use a simple sinus animation (up and down) and make use of the Perlin noise function, by Stefan Gustavson.
+To add some idle animations to the geometries and make them look organic and alive, we utilize a simple sinus animation and incorporate Perlin noise using Stefan Gustavson's Perlin noise function.
 
-:::info
-Perlin Noise is a mathematical function that uses interpolation between a large number of precomputed gradient vectors that construct a value that varies pseudo-randomly in space or time. It makes it appear as if the particles were moving in all directions randomly.
-:::
+The sinus animation creates an up-and-down movement effect by applying the sin function to the x coordinate of the model position, multiplied by a factor of 5, and the current time multiplied by 2.5. This value is then multiplied by 0.02 to control the magnitude of the animation.
+
+The Perlin noise animation is achieved by using the cnoise function with the `modelPosition.yz `(excluding the x coordinate) and the current time multiplied by 0.5. The resulting noise is later toned down by bein multiplied by 0.05.
+
+To combine these two animations, we use the mix function, which blends the sinus animation and the Perlin noise animation together with a balance of 0.5. The resulting value is stored in the idleAnimation variable.
 
 ```glsl
 //IdleAnimation
@@ -70,7 +72,9 @@ float perlinNoiseAnimation = cnoise(vec3(modelPosition.yz, time*0.5))*0.05;
 float idleAnimation = mix(sinusAnimation,perlinNoiseAnimation, 0.5);
 ```
 
-The fragment shader is a bit simpler. All you need to know is that it takes care of the color of the pixels (hence the buffer color and transparency are used here).
+In the fragment shader, the main goal is to determine the color and transparency of the pixels. The `bufferColor` uniform represents the color of the particles, and the `transparencyState` uniform controls the transparency.
+
+The particles are made to appear round by creating circles in the middle of each particle. This is achieved by calculating the distance of the current fragment coordinate from the center of the particle and comparing it to a threshold value of 0.5. If the distance is less than 0.5, the fragment is inside the circle and is assigned a value of 1; otherwise, it is outside the circle and is assigned a value of 0. This value is then multiplied by the `transparencyState` to control the overall transparency of the particle.
 
 ```glsl title="src/shader/fragment.glsl"
 uniform vec3 bufferColor;
@@ -89,10 +93,6 @@ void main()
 }
 ```
 
-:::caution
-You might have noticed that the particles, although we try to make them round, are nothing but little black squares with circles in the middle. This is because **transparency in the GLSL world is a myth**.
+> It's important to note that transparency in the GLSL world is not truly achievable due to the limitations of rendering techniques. In this implementation, each particle is treated as a single vertex, resulting in square particles with circles in the middle to create the impression of transparency:
 
-To truly create rounded circles, one would have to create lots of rounded circles squashed together to make the impression of truly "transparent" borders. For convenience purposes, in this case, we treated each circle as one vertex and one only.
-:::
-
-![image](/img/roundedShaders.png)
+<img class="mx-auto" src="/img/roundedShaders.png" size="80%" />
