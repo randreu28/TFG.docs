@@ -1,17 +1,20 @@
 ---
-title: TODO
+title: Buckle up
 pagination: 05
 ---
 
-# Buckle up
+# 5. Buckle up
 
-:::info
-Check out the live version [here](http://tfg-buckle-up.vercel.app/)
-:::
+[![Image](/img/buckleUp.png)](http://tfg-buckle-up.vercel.app/)
 
-[![image](/img/buckleUp.png)](http://tfg-buckle-up.vercel.app/)
+<div class="flex justify-between w-full">
+  <a href="https://github.com/randreu28/TFG.buckle-up">Repository</a>
+  <a href="http://tfg-buckle-up.vercel.app/">Live version</a>
+</div>
 
-## Installation
+## 5.1 Installation
+
+To set up the project, follow these installation steps:
 
 ```bash
 git clone https://github.com/randreu28/TFG.buckle-up
@@ -20,21 +23,17 @@ yarn install
 yarn dev
 ```
 
-## Overview
+## 5. 2 Overview
 
-:::info
-This project wouldn't be possible without the help of [dila](https://www.shadertoy.com/user/dila), the creator of the shader on which this project relies.
-:::
+> This project wouldn't be possible without the help of [dila](https://www.shadertoy.com/user/dila), the creator of the shader on which this project relies.
 
 This project was meant to explore shaders. To be more concrete, the R3F approach to using [Shadertoy's](https://www.shadertoy.com/). Shadertoy is a library of shaders created by the community, and it offers a lot of different options with shaders.
 
-:::tip
-As the era of WebGPU approaches, the community for shaders is too. If you're interested in the next generation of shaders, check out [Compute Toys](https://compute.toys/), a library made only for WebGPU shaders.
-:::
+> As the era of WebGPU approaches, the community for shaders is too. If you're interested in the next generation of shaders, you may refer to [Compute Toys](https://compute.toys/), a library made only for WebGPU shaders.
 
-The goal of this project was to figure out a way to connect these pure GLSL shaders into a React application and make interesting use of it.
+The main objective of this project was to find a way to integrate pure GLSL shaders into a React application and explore their potential for creating interesting visual effects.
 
-Let's take a look at how the app is structured:
+Now, let's examine the structure of the application:
 
 ```tsx title="/src/App.tsx"
 <Suspense fallback={<Loading />}>
@@ -46,11 +45,9 @@ Let's take a look at how the app is structured:
 </Suspense>
 ```
 
-## Shader uniforms
+## 5.3 Shader uniforms
 
-:::tip
-In case you are not familiar with shaders, it is recommended that you've read the [Particle showcase project](/docs/projects/particle-showcase/shader), as it gives the base understanding of them.
-:::
+> In case you are not familiar with shaders, it is recommended that you've read the [Particle showcase project](/docs/projects/particle-showcase/shader), as it gives the base understanding
 
 The `<Shader/>` component is a simple `<Plane/>` geometry that occupies the whole viewport, and the custom shader material.
 
@@ -66,7 +63,9 @@ The `<Shader/>` component is a simple `<Plane/>` geometry that occupies the whol
 </Plane>
 ```
 
-First, we have to make sure the shader material is getting the proper `uniforms`, and we can start by creating the correct types for it by extending the base R3F types:
+In this code snippet, the `<Plane/>` component is utilized with specific arguments to define its dimensions based on the client's viewport size. Inside the` <Plane/>`, a `<shaderMaterial/> `component is added with a unique key to ensure proper updates and rendering of the custom shader material.
+
+To ensure that the shader material receives the correct uniforms, we can define the appropriate types by extending the base types provided by R3F:
 
 ```tsx
 interface myMaterial extends THREE.Material {
@@ -84,9 +83,11 @@ interface myMesh extends THREE.Mesh {
 }
 ```
 
-:::info
-The `iVariableName` naming convention comes from shadertoy, and it is being respected to communicate with the shader the same way.
-:::
+In this code snippet, we define the `myMaterial` interface by extending the `THREE.Material` type. It includes uniforms as a property, which specifies the various uniform values required by the shader. The `iTime` uniform represents the internal time state of the shader, iResolution represents the resolution of the shader (viewport dimensions), and `iChannel0`, `iChannel1`, and `iChannel2` represent the textures used for shader rendering.
+
+Similarly, we define the myMesh interface by extending the `THREE.Mesh` type. It includes a material property of type `myMaterial`, ensuring that the custom shader material is correctly assigned to the mesh.
+
+> The `iVariableName` naming convention comes from shadertoy, and it is being respected to communicate with the shader the same way.
 
 Next, the `iTime` and `iResolution` need to be updated every frame, so we can use the `useFrame` custom hook from R3F:
 
@@ -100,14 +101,27 @@ useFrame((state) => {
 });
 ```
 
-## Shader material
+## 5.4 Shader material
 
-Now, it is time to declare the initial shader material:
+To declare the initial shader material, we import the fragment and vertex shaders from the respective files:
 
 ```tsx
 import fragment from "../shaders/fragment.glsl"; // From shaderToy
 import vertex from "../shaders/vertex.glsl"; // From shaderToy
+```
 
+> To import GLSL files as strings in TypeScript, you can create a declaration file named glsl.d.ts. In this file, you declare a module for \*.glsl files and specify that they should be treated as strings:
+
+```ts title="glsl.d.ts"
+declare module "*.glsl" {
+  const value: string;
+  export default value;
+}
+```
+
+Next, in the Model component, we create the `ShaderMaterial` using the `shaderMaterial` function provided by react-three-fiber. We pass the necessary uniforms and shader sources to the function:
+
+```tsx
 export default function Model() {
   //...
   const ShaderMaterial = shaderMaterial(
@@ -128,29 +142,16 @@ export default function Model() {
 }
 ```
 
-:::tip
-When importing GLSL files, Typescript doesn't know what to make of them. To tell typescript to import them as strings, you can create a declaration file `glsl.d.ts`:
-
-```ts title="glsl.d.ts"
-declare module "*.glsl" {
-  const value: string;
-  export default value;
-}
-```
-
-:::
-
 Notice that the textures from the `iChannels` come from `activeTextures`. This comes from the [leva controls](/docs/common-libraries#leva-controls), which are set up in such a way that they can choose from 10 different textures. The textures chosen provide a wide range of colors and combinations that allow the user to explore the different ways the shader relies on the materials:
 
-<img src="/img/buckleUpTextures.jpg"  width="60%"/>
+<img class="mx-auto" src="/img/buckleUpTextures.jpg"  width="60%"/>
 
-## Presets
+## 5.5 Presets
 
 The leva controls presets offer the user the possibility to interchange between the textures, but there are some presets that the user could select.
 
 ```tsx
 const [activeTextures, setActiveTextures] = useControls("Textures", () => ({
-  //highlight-start
   iChannel0: {
     value: 0,
     options: textureControlOptions, //The list of materials
@@ -163,7 +164,6 @@ const [activeTextures, setActiveTextures] = useControls("Textures", () => ({
     value: 0,
     options: textureControlOptions,
   },
-  //highlight-end
 }));
 ```
 
@@ -183,7 +183,7 @@ const [activeTextures, setActiveTextures] = useControls("Textures", () => ({
     value: 0,
     options: textureControlOptions,
   },
-  //highlight-start
+
   1: buttonGroup({
     label: "Presets",
     opts: {
@@ -213,7 +213,6 @@ const [activeTextures, setActiveTextures] = useControls("Textures", () => ({
       },
     },
   }),
-  //highlight-end
 }));
 ```
 
