@@ -1,13 +1,13 @@
 ---
-title: TODO
+title: Model visualization
 pagination: 3.2
 ---
 
-# Model Visualization
+# 3.2 Model Visualization
 
-### Animations
+### 3.2.1 Animations
 
-Loading unknown models has some downsides, as you don't know what the GLTF scene will look like. So how would you access the animations, if they had any? That is TriArt `<Scene/>` component resolves:
+Loading unknown models can present challenges because the structure of the GLTF scene and its animations may vary. However, TriArt addresses this issue with its `<Model/>` component, which provides a solution for accessing animations:
 
 ```tsx title="src/components/Scene.tsx"
 function Model({ url }: Props) {
@@ -30,11 +30,13 @@ function Model({ url }: Props) {
 }
 ```
 
-:::info
-As you might have noticed, the type-safety goes out the window once you don't have the information of the model you're working on. It's one of the rare cases where `any` is justified.
-:::
+When working with unknown models, maintaining type-safety can become challenging because you lack information about the specific model's structure. In such cases, it becomes necessary to use the `any` type, which allows for flexibility in handling dynamic and unknown data.
 
-This gives us 3 variables: the `defaultAnimationsControls`, which allow us to create the [Leva controls](/docs/common-libraries#leva-controls) later, the list of `animationClips` available, and the `mixer`, which takes care of handling the animations.
+By using the `any` type, you can bypass strict type-checking and handle the model data in a more generic and adaptable manner. This enables you to access properties and perform operations on the model without explicitly defining their types, accommodating the unknown nature of the data.
+
+While relying on the `any` type sacrifices some level of type-safety, it becomes justified in situations where the model's structure is unknown or variable. It allows you to work with the data without imposing strict type constraints, ensuring compatibility with different model formats and variations.
+
+The `useMemo` hooks from the previous code snippet gives us 3 variables: the `defaultAnimationsControls`, which allow us to create the [Leva controls](/docs/common-libraries#leva-controls) later, the list of `animationClips` available, and the `mixer`, which takes care of handling the animations.
 
 Now let us not forget that the `THREE.AnimationMixer` needs to be updated with the frame rate of our `<Canvas/>`, so we use the `useFrame` hook from R3F to keep it updated:
 
@@ -44,7 +46,7 @@ useFrame((_, delta) => {
 });
 ```
 
-## Scale normalization
+## 3.2.2 Scale normalization
 
 Lastly, we need to take care of the size of the model. We don't know how big or small the model might be, but we want the user to be able to see it in a proportion that fits on the canvas. To do so, we check the size of it with `useEffect`:
 

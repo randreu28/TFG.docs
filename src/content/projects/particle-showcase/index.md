@@ -12,7 +12,7 @@ pagination: 2
   <a href="https://particle-showcase.vercel.app/">Live version</a>
 </div>
 
-## 2.1 Installation
+## 2.0.1 Installation
 
 To set up the project, follow these installation steps:
 
@@ -23,7 +23,7 @@ yarn install
 yarn dev
 ```
 
-## 2.2 Project Overview
+## 2.0.2 Project Overview
 
 The project consists of a particle system made with a particle shader, that changes its internal state every x seconds, alongside some text. The project incorporates [Leva controls](/docs/common-libraries#leva-controls) for manipulating various aspects of the scene. The following code snippet showcases the structure of the `<Canvas/>` component:
 
@@ -50,7 +50,7 @@ Furthermore, outside the canvas, the `<DynamicText/>` component is responsible f
 </h1>
 ```
 
-## 2.3 The Canvas
+## 2.0.3 The Canvas
 
 Let's delve into the details of the `<Canvas/>` component. It includes a perspective camera with a position managed by the Leva controls. Notably, there is also an `<OrbitControls/>` component present. One might wonder how these two elements coexist without conflicting:
 
@@ -81,7 +81,7 @@ Additionally, the `<EffectComposer/>` component from [React Three Postprocessing
 
 > In Eskil's vignette technique, the effect originates from the outside and moves inwards, as opposed to the traditional inside-out approach. When the `eskil` prop is set to true, the offset value should be greater than 1.
 
-## 2.4 Modeling workflow
+## 2.0.4 Modeling workflow
 
 In this project, although the primary focus of the thesis was not on modeling, the author took personal responsibility for creating basic models. To achieve this, it was crucial to have real-time feedback on how the models would appear within the particle system. Fortunately, [Blender](https://www.blender.org/), the chosen 3D modeling software, offers a command-line interface (CLI) that allows the execution of Python scripts to automate workflows.
 
