@@ -3,7 +3,7 @@ title: Mirror effect
 pagination: 04
 ---
 
-# 4 Mirror effect
+# 4. Mirror effect
 
 [![Image](/img/mirrorEffect.png)](https://tfg-mirror-effect.vercel.app/)
 

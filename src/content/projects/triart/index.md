@@ -3,7 +3,7 @@ title: TriArt
 pagination: 3.0
 ---
 
-# 3 TriArt
+# 3. TriArt
 
 [![Image](/img/triart.png)](https://tfg-triart.vercel.app/)
 
