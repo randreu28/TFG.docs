@@ -1,5 +1,6 @@
 ---
 title: TODO
+pagination: 2.2
 ---
 
 # Dynamic text

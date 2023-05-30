@@ -1,5 +1,6 @@
 ---
 title: TODO
+pagination: 3.0
 ---
 
 # TriArt

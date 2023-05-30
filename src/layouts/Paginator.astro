@@ -8,6 +8,8 @@ type Props = {
 const { id } = Astro.props;
 const projects = await getCollection("projects");
 
+projects.sort((a, b) => a.data.pagination - b.data.pagination);
+
 const index = projects.findIndex((project) => project.id === id);
 ---
 

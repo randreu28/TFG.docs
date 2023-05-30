@@ -1,6 +1,8 @@
 ---
 import { getCollection } from "astro:content";
 const projects = await getCollection("projects");
+
+projects.sort((a, b) => a.data.pagination - b.data.pagination);
 ---
 
 <h2>Contents</h2>
