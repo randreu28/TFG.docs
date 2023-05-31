@@ -5,7 +5,7 @@ pagination: 03
 
 # 3. Common libraries
 
-Throughout all the projects, there are some libraries that were used repeatedly that aren't meant to be the main focus of the thesis. This section intends to give a quick summary of how they work.
+Throughout all the projects, there are some libraries that were used repeatedly that aren't meant to be the main focus of the thesis. This chapter intends to give a quick summary of how they work.
 
 ## 3.1 Leva Controls
 

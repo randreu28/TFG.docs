@@ -5,8 +5,6 @@ pagination: 01
 
 # 1. An introduction
 
-Hello! My name is and welcome to the documentation of my bachelor's thesis. The thesis is about the creation of a gallery of interactive applications with 3D components. This documentation will walk you through the different projects that I worked on, as well as the implementation and the decision-making of all the technological architecture. Feel free to check it out!
-
 The purpose of this documentation is to present the findings and outcomes of [the author](https://randreu.dev)'s bachelor thesis. The thesis focuses on the development and implementation of a gallery comprising interactive applications with 3D components. This chapter provides an introduction to the thesis and outlines the structure of the documentation, as well as some key concepts that will later be of utility for the rest of the documentation.
 
 ## 1.1 Scope
