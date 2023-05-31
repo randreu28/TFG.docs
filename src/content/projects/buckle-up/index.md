@@ -47,7 +47,7 @@ Now, let's examine the structure of the application:
 
 ## 6.3 Shader uniforms
 
-> In case you are not familiar with shaders, it is recommended that you've read the [Particle showcase project](/docs/projects/particle-showcase/shader), as it gives the base understanding
+> In case you are not familiar with shaders, it is recommended that you've read the [Particle showcase project](/projects/particle-showcase/shader), as it gives the base understanding
 
 The `<Shader/>` component is a simple `<Plane/>` geometry that occupies the whole viewport, and the custom shader material.
 
@@ -142,7 +142,7 @@ export default function Model() {
 }
 ```
 
-Notice that the textures from the `iChannels` come from `activeTextures`. This comes from the [leva controls](/docs/common-libraries#leva-controls), which are set up in such a way that they can choose from 10 different textures. The textures chosen provide a wide range of colors and combinations that allow the user to explore the different ways the shader relies on the materials:
+Notice that the textures from the `iChannels` come from `activeTextures`. This comes from the [leva controls](/projects/common-libraries#31-leva-controls), which are set up in such a way that they can choose from 10 different textures. The textures chosen provide a wide range of colors and combinations that allow the user to explore the different ways the shader relies on the materials:
 
 <img class="mx-auto" src="/img/buckleUpTextures.jpg"  width="60%"/>
 

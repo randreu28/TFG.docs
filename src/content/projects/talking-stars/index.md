@@ -25,9 +25,9 @@ yarn dev
 
 ## 8.2 Overview
 
-> In case you are not familiar with shaders, it is recommended that you've read the [Particle showcase project](/docs/projects/particle-showcase/shader), as it gives the base understanding of them.
+> In case you are not familiar with shaders, it is recommended that you've read the [Particle showcase project](/projects/particle-showcase/shader), as it gives the base understanding of them.
 
-This project was similar to the [buckle up project](/docs/projects/buckle-up), as both's objectives aimed to play around with shaders with the help of the community of [shadertoy](https://shadertoy.com). This shader is special from the rest, as it relies on the user's microphone for its rendering process.
+This project was similar to the [buckle up project](/projects/buckle-up), as both's objectives aimed to play around with shaders with the help of the community of [shadertoy](https://shadertoy.com). This shader is special from the rest, as it relies on the user's microphone for its rendering process.
 
 > This project wouldn't be possible without the help of [CBS](https://www.shadertoy.com/user/CBS), the author of the _Simplicity Galaxy_ shader.
 

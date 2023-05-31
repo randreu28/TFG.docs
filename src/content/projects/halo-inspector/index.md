@@ -29,7 +29,7 @@ This project was designed to be an inspector of a given object, in this case, a 
 
 > The project couldn't have been possible without the aid of, [McCarthy3D](https://sketchfab.com/joshuawatt811) the creator of the 3D model.
 
-Now, let's examine the structure of the application. Note that we are using [Jotai](/docs/common-libraries#zustand--jotai) as state management, as well as [@a7sc11u/scramble](/docs/common-libraries#a7sc11uscramble)
+Now, let's examine the structure of the application. Note that we are using [Jotai](/projects/common-libraries#32-zustand--jotai) as state management, as well as [@a7sc11u/scramble](/projects/common-libraries#33-a7sc11uscramble)
 
 ```tsx title="/src/App.tsx"
 import { TextScramble } from "@a7sc11u/scramble";

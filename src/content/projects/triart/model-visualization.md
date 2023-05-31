@@ -36,7 +36,7 @@ By using the `any` type, you can bypass strict type-checking and handle the mode
 
 While relying on the `any` type sacrifices some level of type-safety, it becomes justified in situations where the model's structure is unknown or variable. It allows you to work with the data without imposing strict type constraints, ensuring compatibility with different model formats and variations.
 
-The `useMemo` hooks from the previous code snippet gives us 3 variables: the `defaultAnimationsControls`, which allow us to create the [Leva controls](/docs/common-libraries#leva-controls) later, the list of `animationClips` available, and the `mixer`, which takes care of handling the animations.
+The `useMemo` hooks from the previous code snippet gives us 3 variables: the `defaultAnimationsControls`, which allow us to create the [Leva controls](/projects/common-libraries#31-leva-controls) later, the list of `animationClips` available, and the `mixer`, which takes care of handling the animations.
 
 Now let us not forget that the `THREE.AnimationMixer` needs to be updated with the frame rate of our `<Canvas/>`, so we use the `useFrame` hook from R3F to keep it updated:
 

@@ -58,7 +58,7 @@ export default function App() {
 
 ## 7.4 Mirror material
 
-Before discussing the `<MyScene/>` component, we'll explore how the mirror material's implementation was achieved. Luckily, R3F offers us a reflector material with some props to configure to get the desired effect. To do so, the use of [Leva controls](/docs/common-libraries#leva-controls) was paramount. In matters like this, it is all about quick iterations and trial and error, and Leva excels at that:
+Before discussing the `<MyScene/>` component, we'll explore how the mirror material's implementation was achieved. Luckily, R3F offers us a reflector material with some props to configure to get the desired effect. To do so, the use of [Leva controls](/projects/common-libraries#31-leva-controls) was paramount. In matters like this, it is all about quick iterations and trial and error, and Leva excels at that:
 
 ```tsx
 import { MeshReflectorMaterial } from "@react-three/drei";

@@ -25,7 +25,7 @@ yarn dev
 
 ## 4.0.2 Project Overview
 
-The project consists of a particle system made with a particle shader, that changes its internal state every x seconds, alongside some text. The project incorporates [Leva controls](/docs/common-libraries#leva-controls) for manipulating various aspects of the scene. The following code snippet showcases the structure of the `<Canvas/>` component:
+The project consists of a particle system made with a particle shader, that changes its internal state every x seconds, alongside some text. The project incorporates [Leva controls](/projects/common-libraries#31-leva-controls) for manipulating various aspects of the scene. The following code snippet showcases the structure of the `<Canvas/>` component:
 
 ```tsx title="/src/App.tsx"
 <Canvas>
