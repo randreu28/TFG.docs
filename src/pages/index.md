@@ -1,5 +1,5 @@
 ---
-title: TFG Docs
+title: TFG Documentation
 ---
 
 ## About the thesis
