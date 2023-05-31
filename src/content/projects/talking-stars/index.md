@@ -1,9 +1,9 @@
 ---
 title: Talking stars
-pagination: 06
+pagination: 8
 ---
 
-# 6. Talking stars
+# 8. Talking stars
 
 [![Image](/img/talkingStars.png)](https://tfg-talking-stars.vercel.app/)
 
@@ -12,7 +12,7 @@ pagination: 06
   <a href="https://tfg-talking-stars.vercel.app/">Live version</a>
 </div>
 
-## Installation
+## 8.1 Installation
 
 To set up the project, follow these installation steps:
 
@@ -23,7 +23,7 @@ yarn install
 yarn dev
 ```
 
-## 6.1 Overview
+## 8.2 Overview
 
 > In case you are not familiar with shaders, it is recommended that you've read the [Particle showcase project](/docs/projects/particle-showcase/shader), as it gives the base understanding of them.
 
@@ -31,7 +31,7 @@ This project was similar to the [buckle up project](/docs/projects/buckle-up), a
 
 > This project wouldn't be possible without the help of [CBS](https://www.shadertoy.com/user/CBS), the author of the _Simplicity Galaxy_ shader.
 
-## 6.2 Media Stream
+## 8.3 Media Stream
 
 For the use of the user's microphone, the user must give permission access to the microphone. This comes in the form of a [Media Stream](https://developer.mozilla.org/en-US/docs/Web/API/MediaStream) and is accessible through the `navigator` API:
 
@@ -46,7 +46,7 @@ navigator.mediaDevices
   });
 ```
 
-6.3 Once the user has granted access to the microphone, we save it in state. This way, we make sure the `<Shader/>` component will always have the stream prop:
+Once the user has granted access to the microphone, we save it in state. This way, we make sure the `<Shader/>` component will always have the stream prop:
 
 ```tsx title="/src/App.tsx"
 export default function App() {
@@ -72,7 +72,7 @@ export default function App() {
 }
 ```
 
-## 6.4 The shader's uniforms
+## 8.4 The shader's uniforms
 
 Similar to other projects, it is necessary to feed the shader with their necessary `uniforms`, which are required for their rendering process. In this case, we only need three:
 
@@ -98,7 +98,7 @@ interface myMesh extends THREE.Mesh {
 
 > The `iVariableName` naming convention comes from shadertoy, and it is being respected to communicate with the shader the same way.
 
-## 6.5 Creating the shader's material
+## 8.5 Creating the shader's material
 
 Once we have a clear view of what the material needs, let us declare its initial state:
 
@@ -129,7 +129,7 @@ declare module "*.glsl" {
 }
 ```
 
-## 6.6 How the audio affects the shader
+## 8.6 How the audio affects the shader
 
 The shader is tied to the microphone input through the `uniforms`, as it requires a `THREE.DataTexture` to pass in to the `iChannel0` uniform. This is because the shader is composed of three layers:
 
@@ -143,7 +143,7 @@ One may think of it as a camera filter. The darker the filter, the less you can 
 
 <img src="/img/filter.jpg" class="mx-auto" height="500" width="50%"/>
 
-## 6.7 Audio to Texture interpolation
+## 8.7 Audio to Texture interpolation
 
 To create a texture based on the material's input, we need an [Audio Context](https://developer.mozilla.org/en-US/docs/Web/API/AudioContext). This will be in preparation for extracting the Hertz frequency of the media stream. You may think of it as a DOM EventListener, we only connect the `stream` Media Source to an analyzer that can calculate the Heartz without modifying the input.
 

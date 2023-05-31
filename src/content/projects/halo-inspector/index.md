@@ -1,9 +1,9 @@
 ---
 title: Halo inspector
-pagination: 07
+pagination: 9
 ---
 
-# 7. Halo inspector
+# 9. Halo inspector
 
 [![Image](/img/haloInspector.png)](https://halo-inspector-randreu28.vercel.app/)
 
@@ -12,7 +12,7 @@ pagination: 07
   <a href="https://halo-inspector-randreu28.vercel.app/">Live version</a>
 </div>
 
-## 7.1 Installation
+## 9.1 Installation
 
 To set up the project, follow these installation steps:
 
@@ -23,7 +23,7 @@ yarn install
 yarn dev
 ```
 
-## 7.2 Overview
+## 9.2 Overview
 
 This project was designed to be an inspector of a given object, in this case, a [halo model](https://sketchfab.com/3d-models/spartan-armour-mkv-halo-reach-57070b2fd9ff472c8988e76d8c5cbe66). The idea is to have each piece of the model be clickable and inspectable, with a complementary text to accompany it.
 
@@ -67,7 +67,7 @@ export default function App() {
     </div>
 ```
 
-## 7.3 The model
+## 9.3 The model
 
 The model `.glb` file was first imported as a React component using the gltf-to-jsx CLI. As discussed in detail in the [TriArt project](/docs/projects/triart/loading-models#the-usual-approach). The generated result gives us a type-safe JSX through the `useGLTF` hook from R3F. Here's the generated result:
 
@@ -199,7 +199,7 @@ useEffect(() => {
 }, []);
 ```
 
-## 7.4 Material selection
+## 9.4 Material selection
 
 For the material selection, we relied on the [React-Spring](https://www.react-spring.dev/) library, an animation library similar to [gsap](https://greensock.com/gsap/), but with a modern react-based approach. The animations (besides the camera movements) are on the material's opacity, as they get more opaque or less depending on whether they are selected or not.
 
@@ -287,7 +287,7 @@ And we simply attach it to the parent group:
 </group>
 ```
 
-## 7.5 Camera movements
+## 9.5 Camera movements
 
 Every time a material is selected, there is an interpolation of the camera's position (a `Vector3`, in Three.js lingo), and a position of the material in close-up. For that, it was implemented a `<CustomCamera/>` component that handles all of these interpolations.
 

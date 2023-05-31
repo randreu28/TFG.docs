@@ -8,7 +8,7 @@ The thesis is about the creation of a **gallery of interactive applications with
 
 ## Showcase
 
-As the projects are very visual, the [showcase](/showcase) section collects all the projects and preview links to offer at your disposal.
+As the projects are very visual, the [gallery](/projects/gallery) section collects all the projects and preview links to offer at your disposal.
 
 ## Who is this for?
 

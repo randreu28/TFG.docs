@@ -1,9 +1,9 @@
 ---
 title: Buckle up
-pagination: 05
+pagination: 06
 ---
 
-# 5. Buckle up
+# 6. Buckle up
 
 [![Image](/img/buckleUp.png)](http://tfg-buckle-up.vercel.app/)
 
@@ -12,7 +12,7 @@ pagination: 05
   <a href="http://tfg-buckle-up.vercel.app/">Live version</a>
 </div>
 
-## 5.1 Installation
+## 6.1 Installation
 
 To set up the project, follow these installation steps:
 
@@ -23,7 +23,7 @@ yarn install
 yarn dev
 ```
 
-## 5. 2 Overview
+## 6.2 Overview
 
 > This project wouldn't be possible without the help of [dila](https://www.shadertoy.com/user/dila), the creator of the shader on which this project relies.
 
@@ -45,7 +45,7 @@ Now, let's examine the structure of the application:
 </Suspense>
 ```
 
-## 5.3 Shader uniforms
+## 6.3 Shader uniforms
 
 > In case you are not familiar with shaders, it is recommended that you've read the [Particle showcase project](/docs/projects/particle-showcase/shader), as it gives the base understanding
 
@@ -101,7 +101,7 @@ useFrame((state) => {
 });
 ```
 
-## 5.4 Shader material
+## 6.4 Shader material
 
 To declare the initial shader material, we import the fragment and vertex shaders from the respective files:
 
@@ -146,7 +146,7 @@ Notice that the textures from the `iChannels` come from `activeTextures`. This c
 
 <img class="mx-auto" src="/img/buckleUpTextures.jpg"  width="60%"/>
 
-## 5.5 Presets
+## 6.5 Presets
 
 The leva controls presets offer the user the possibility to interchange between the textures, but there are some presets that the user could select.
 

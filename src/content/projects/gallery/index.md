@@ -1,9 +1,9 @@
 ---
-title: Showcase
-layout: ../layouts/BaseLayout.astro
+title: Gallery
+pagination: 2
 ---
 
-# Showcase
+# 2. Gallery
 
 All the projects are open source and at anyone's disposal. As the projects are very visual, there is also preview links to experience the end result in live.
 

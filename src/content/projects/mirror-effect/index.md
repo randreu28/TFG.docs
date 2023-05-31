@@ -1,9 +1,9 @@
 ---
 title: Mirror effect
-pagination: 04
+pagination: 07
 ---
 
-# 4. Mirror effect
+# 7. Mirror effect
 
 [![Image](/img/mirrorEffect.png)](https://tfg-mirror-effect.vercel.app/)
 
@@ -12,7 +12,7 @@ pagination: 04
   <a href="https://tfg-mirror-effect.vercel.app/">Live version</a>
 </div>
 
-## 4.1 Installation
+## 7.1 Installation
 
 To set up the project, follow these installation steps:
 
@@ -23,11 +23,11 @@ yarn install
 yarn dev
 ```
 
-## 4.2 Overview
+## 7.2 Overview
 
 This project was meant to be an exploratory approach to reflections. The idea behind it was to play around with some mirrors and try to get an interesting effect on them. I used a Roman statue from the artist [engine9](https://sketchfab.com/engine9) that helped me get the style I aimed for.
 
-## 4.3 Consent bypass
+## 7.3 Consent bypass
 
 As the project ended up becoming very _artistic_ iIt was decided to add an intro message before the actual scene. For that the app had a consent bypass that unclocked the main App once the user interacted with the `<Intro/>` component:
 
@@ -56,7 +56,7 @@ export default function App() {
 }
 ```
 
-## 4.4 Mirror material
+## 7.4 Mirror material
 
 Before discussing the `<MyScene/>` component, we'll explore how the mirror material's implementation was achieved. Luckily, R3F offers us a reflector material with some props to configure to get the desired effect. To do so, the use of [Leva controls](/docs/common-libraries#leva-controls) was paramount. In matters like this, it is all about quick iterations and trial and error, and Leva excels at that:
 
@@ -90,7 +90,7 @@ export default function Mirror(props: JSX.IntrinsicElements["mesh"]) {
 }
 ```
 
-## 4.5 Mirror generation
+## 7.5 Mirror generation
 
 For the positioning of the mirror, the mirrors were initially placed according to the vertices of an Icosaedron geometry. Each vertex was the center of the geometry, alongside their Euler angle. Each mirror _looked at_ the center of the Icoshaderon. Take, for example, the Three.js example of the Icosahedron and try to imagine the coordinates of each vertex:
 
@@ -164,7 +164,7 @@ return (
 }
 ```
 
-## 4.6 Animations
+## 7.6 Animations
 
 The animations of the mirror cloud are relatively straightforward. We utilize the `Math.sin()` function to generate a waving effect along the y-axis of the `Vector3` for the entire group, as well as their `Euler` rotation.
 
@@ -190,7 +190,7 @@ useFrame((state) => {
 });
 ```
 
-## 4.7 Post-processing
+## 7.7 Post-processing
 
 Lastly, with the help of [React-Postprocessing](https://docs.pmnd.rs/react-postprocessing/introduction), we will include some glitch effects:
 

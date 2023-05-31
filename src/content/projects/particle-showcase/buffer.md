@@ -1,9 +1,9 @@
 ---
 title: The buffer
-pagination: 2.3
+pagination: 4.3
 ---
 
-# 2.3 Buffer
+# 4.3 Buffer
 
 In the `<Buffer/>` component, there are two main aspects: the geometry and the material. These are defined within a `<points>` element, like so:
 
@@ -14,7 +14,7 @@ In the `<Buffer/>` component, there are two main aspects: the geometry and the m
 </points>
 ```
 
-## 2.3.1 The shader material
+## 4.3.1 The shader material
 
 The material of this object is nothing like any other. Luckily, R3F allows us to create materials of our own, by creating a `shaderMaterial` and passing our own fragment and vertex shaders, as well as any uniforms we might need:
 
@@ -60,7 +60,7 @@ useFrame((state) => {
 });
 ```
 
-## 2.3.2 The geometries
+## 4.3.2 The geometries
 
 Following up on what was discussed in the [chapter 2.1](/projects/particle-showcase/shader), the Buffer contains different `position` values, that store the different vertices that compose the geometry. For declaring these values, R3F offers us **Computed Attributes**, which look like this:
 
@@ -135,7 +135,7 @@ const models = [king, lightBulb, rocket];
 
 > The `targetModel` node was specifically called like so in our 3D object inside the .`blender` files. Otherwise, the iteration would have to access different names.
 
-## 2.3.3 Animations
+## 4.3.3 Animations
 
 For the animations, we use the `useEffect` hook to manage our shader uniforms and change the position with the `tic` variable:
 

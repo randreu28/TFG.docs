@@ -1,9 +1,9 @@
 ---
 title: Dynamic text
-pagination: 2.2
+pagination: 4.2
 ---
 
-# 2.2 Dynamic text
+# 4.2 Dynamic text
 
 The dynamic text component in this project utilizes the [scrambleUI](/docs/common-libraries#a7sc11uscramble) library.for the text animations. To implement this, we cycle between different texts based on the tick state, which determines the speed at which the buffer changes its geometry.
 

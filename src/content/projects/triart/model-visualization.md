@@ -1,11 +1,11 @@
 ---
 title: Model visualization
-pagination: 3.2
+pagination: 5.2
 ---
 
-# 3.2 Model Visualization
+# 5.2 Model Visualization
 
-### 3.2.1 Animations
+### 5.2.1 Animations
 
 Loading unknown models can present challenges because the structure of the GLTF scene and its animations may vary. However, TriArt addresses this issue with its `<Model/>` component, which provides a solution for accessing animations:
 
@@ -46,7 +46,7 @@ useFrame((_, delta) => {
 });
 ```
 
-## 3.2.2 Scale normalization
+## 5.2.2 Scale normalization
 
 Lastly, we need to take care of the size of the model. We don't know how big or small the model might be, but we want the user to be able to see it in a proportion that fits on the canvas. To do so, we check the size of it with `useEffect`:
 

@@ -1,9 +1,9 @@
 ---
 title: TriArt
-pagination: 3.0
+pagination: 5.0
 ---
 
-# 3. TriArt
+# 5. TriArt
 
 [![Image](/img/triart.png)](https://tfg-triart.vercel.app/)
 
@@ -19,7 +19,7 @@ email: user@example.com
 password: secret
 ```
 
-## 3.0.1 Installation
+## 5.0.1 Installation
 
 To set up the project, follow these installation steps:
 
@@ -34,7 +34,7 @@ yarn dev
 > <br/> <br/>
 > To run this locally, either create your [supabase database](https://supabase.com/) instance or ask for the private keys at the [author's contact page](https://www.randreu.dev/#contact-me).
 
-## 3.0.2 Overview
+## 5.0.2 Overview
 
 TriArt is a platform where you can upload your 3D artwork and share them with the world. It creates unique links for each model, and the viewer can interact with them with a given set of options. The authors can monitor the model's views and visibility, should they prefer to keep some of their models private.
 

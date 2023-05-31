@@ -1,9 +1,9 @@
 ---
 title: The Shader
-pagination: 2.1
+pagination: 4.1
 ---
 
-# 2.1 The Shader
+# 4.1 The Shader
 
 > This project heavily relies on GLSL (OpenGL Shading Language) for its rendering and interactivity. In this documentation, we will cover the essential aspects of the shader code. If you are new to shaders and would like to learn more, I recommend checking out the [Book of shaders](https://thebookofshaders.com) for a comprehensive introduction.
 
