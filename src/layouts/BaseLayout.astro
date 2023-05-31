@@ -10,6 +10,8 @@ const { title, frontmatter } = Astro.props;
 
 import Footer from "../components/Footer.astro";
 import NavBar from "../components/NavBar.astro";
+import "@fontsource-variable/lora";
+
 const isDark = Astro.cookies.get("theme").value === "dark";
 ---
 
@@ -22,7 +24,7 @@ const isDark = Astro.cookies.get("theme").value === "dark";
     <meta name="generator" content={Astro.generator} />
     <title>{title} {frontmatter?.title}</title>
   </head>
-  <body class="font-mono">
+  <body>
     <NavBar />
     <div
       class="prose prose-cyan prose-quoteless mx-auto max-w-3xl p-10 text-justify dark:prose-invert prose-code:before:content-none prose-code:after:content-none"

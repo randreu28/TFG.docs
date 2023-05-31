@@ -460,6 +460,11 @@
   resolved "https://registry.yarnpkg.com/@esbuild/win32-x64/-/win32-x64-0.17.19.tgz#8cfaf2ff603e9aabb910e9c0558c26cf32744061"
   integrity sha512-lAhycmKnVOuRYNtRtatQR1LPQf2oYCkRGkSFnseDAKPl8lu5SOsK/e1sXe5a0Pc5kHIHe6P2I/ilntNv2xf3cA==
 
+"@fontsource-variable/lora@^5.0.3":
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/@fontsource-variable/lora/-/lora-5.0.3.tgz#9c4578c4af54aab96ecceaef0c6efa85dd8b1407"
+  integrity sha512-oGzMM60dUFfqzGG8h//J5BxaFx6cukgMG7GHN90JxQoIuT64NK3Awyk5DUY+vAWjkBcBK7WZezw6aC2jF3wZ7g==
+
 "@jridgewell/gen-mapping@^0.3.0", "@jridgewell/gen-mapping@^0.3.2":
   version "0.3.3"
   resolved "https://registry.yarnpkg.com/@jridgewell/gen-mapping/-/gen-mapping-0.3.3.tgz#7e02e6eb5df901aaedb08514203b096614024098"
