@@ -1,17 +1,20 @@
 ---
-title: TODO
+title: Halo inspector
 pagination: 07
 ---
 
-# Halo inspector
+# 7. Halo inspector
 
-:::info
-Check out the live version [here](https://halo-inspector-randreu28.vercel.app/)
-:::
+[![Image](/img/haloInspector.png)](https://halo-inspector-randreu28.vercel.app/)
 
-[![image](/img/haloInspector.png)](https://halo-inspector-randreu28.vercel.app/)
+<div class="flex justify-between w-full">
+  <a href="https://github.com/randreu28/TFG.halo-inspector">Repository</a>
+  <a href="https://halo-inspector-randreu28.vercel.app/">Live version</a>
+</div>
 
-## Installation
+## 7.1 Installation
+
+To set up the project, follow these installation steps:
 
 ```bash
 git clone https://github.com/randreu28/TFG.halo-inspector
@@ -20,15 +23,13 @@ yarn install
 yarn dev
 ```
 
-## Overview
+## 7.2 Overview
 
 This project was designed to be an inspector of a given object, in this case, a [halo model](https://sketchfab.com/3d-models/spartan-armour-mkv-halo-reach-57070b2fd9ff472c8988e76d8c5cbe66). The idea is to have each piece of the model be clickable and inspectable, with a complementary text to accompany it.
 
-:::info
-Thanks to [McCarthy3D](https://sketchfab.com/joshuawatt811) for making this project possible!
-:::
+> The project couldn't have been possible without the aid of, [McCarthy3D](https://sketchfab.com/joshuawatt811) the creator of the 3D model.
 
-Let's take a look at the project's structure. Note that we are using [Jotai](/docs/common-libraries#zustand--jotai) as state management, as well as [@a7sc11u/scramble](/docs/common-libraries#a7sc11uscramble)
+Now, let's examine the structure of the application. Note that we are using [Jotai](/docs/common-libraries#zustand--jotai) as state management, as well as [@a7sc11u/scramble](/docs/common-libraries#a7sc11uscramble)
 
 ```tsx title="/src/App.tsx"
 import { TextScramble } from "@a7sc11u/scramble";
@@ -66,7 +67,7 @@ export default function App() {
     </div>
 ```
 
-## The model
+## 7.3 The model
 
 The model `.glb` file was first imported as a React component using the gltf-to-jsx CLI. As discussed in detail in the [TriArt project](/docs/projects/triart/loading-models#the-usual-approach). The generated result gives us a type-safe JSX through the `useGLTF` hook from R3F. Here's the generated result:
 
@@ -190,7 +191,7 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
 useGLTF.preload("/halo.glb");
 ```
 
-Although the output might be very verbose, it gives us very granular control over each mesh, which is exactly what we want. Also, we can add a `useEffect` hook to initialize the breathing animation of the model on the first load, and we can access it with full-type safety!
+Although the output of the shader material might be verbose, it provides granular control over each mesh, which is essential for the required tasks. Additionally, by using a `useEffect` hook, we can initialize the breathing animation of the model on the initial load, and thanks to TypeScript, we have full type safety when accessing it.
 
 ```tsx
 useEffect(() => {
@@ -198,15 +199,13 @@ useEffect(() => {
 }, []);
 ```
 
-## Material selection
+## 7.4 Material selection
 
 For the material selection, we relied on the [React-Spring](https://www.react-spring.dev/) library, an animation library similar to [gsap](https://greensock.com/gsap/), but with a modern react-based approach. The animations (besides the camera movements) are on the material's opacity, as they get more opaque or less depending on whether they are selected or not.
 
-:::info
-The React-Spring library was made by the pnmdrs collective, the same collective that created R3F, among many other libraries that we have used for this thesis. React-Spring even has a chapter in its documentation dedicated to [R3F integrations](https://www.react-spring.dev/docs/guides/react-three-fiber)!
-:::
+> The React-Spring library was made by the pnmdrs collective, the same collective that created R3F, among many other libraries that we have used for this thesis. The synergy with our tools is so much so that React-Spring even has a chapter in its documentation dedicated to [R3F integrations](https://www.react-spring.dev/docs/guides/react-three-fiber).
 
-As there are multiple materials that we have to control at once, we used the `useSprings` custom hok from React-Spring, which allowed us to create smooth opacity interpolations with a very ergonomic API:
+As we need to control multiple materials simultaneously, we utilized the `useSprings` custom hook from React-Spring. This hook enabled us to create seamless opacity interpolations with a user-friendly API.
 
 ```tsx
 /* Makes the materials transparent, so we can play with its opacity later */
@@ -234,7 +233,7 @@ useFrame(() => {
 });
 ```
 
-Now that we have the `useSprings` set up, let's create the `onClick` function handler:
+Once we have set up the `useSprings` hook, we can proceed to create the onClick function handler.
 
 ```tsx
 /**
@@ -261,7 +260,7 @@ function handleClick(e: ThreeEvent<MouseEvent>) {
 }
 ```
 
-We also want a function in case the user wants to _zoom out_, by clicking on any other part that isn't the model:
+In addition to the `onClick` function handler for zooming in, we can create another function to handle the _zoom out_ functionality when the user clicks on any other part of the screen.
 
 ```tsx
 function handlePointerMissed() {
@@ -288,15 +287,14 @@ And we simply attach it to the parent group:
 </group>
 ```
 
-## Camera movements
+## 7.5 Camera movements
 
-Every time a material is selected, there is an interpolation of the camera's position (a `Vector3`, in Three.js lingo), and a position of the material in close-up. For that, we created a `<CustomCamera/>` component that handles all of these interpolations.
+Every time a material is selected, there is an interpolation of the camera's position (a `Vector3`, in Three.js lingo), and a position of the material in close-up. For that, it was implemented a `<CustomCamera/>` component that handles all of these interpolations.
 
-Before going into the `<CustomCamera/>` component, there is a small detail we might want to add to the model, to appropriately reference the meshes later. On each skinned mesh, we'll set the name attribute to the material's name, like so:
+Before going into the `<CustomCamera/>` component, there is a small detail we might want to add to the model, to appropriately reference the meshes later. On each skinned mesh, it is pertinent to set the name attribute to the material's name, like so:
 
 ```tsx
 <skinnedMesh
-  //highlight-next-line
   name={materials.lambert1.name}
   geometry={nodes.Object_18.geometry}
   material={materials.lambert1}
@@ -340,7 +338,7 @@ export default function CustomCamera() {
 }
 ```
 
-Fortunately, R3F has a wide range of controllers for the camera. This time we're using the R3F adaptation of the [camera controls library](https://github.com/yomotsu/camera-controls), which can be interpreted as an extension of the more common `<OrbitControls/>`, with the addition of extra features, such as methods for tridimensional interpolations:
+Fortunately, R3F has a wide range of controllers for the camera. This time we're using the R3F adaptation of the [camera controls library](https://github.com/yomotsu/camera-controls), which can be interpreted as an inhereted extension of the more common `<OrbitControls/>`, with the addition of extra features, such as methods for tridimensional interpolations:
 
 <iframe src="https://codesandbox.io/embed/cameracontrols-basic-sew669?fontsize=14&hidenavigation=1&theme=dark"
      width="100%"
@@ -350,10 +348,12 @@ Fortunately, R3F has a wide range of controllers for the camera. This time we're
      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
    />
 
-At first, I thought of interpolating using the `setPosition` method, which already out of the box supports a smooth camera transition, but had the inconvenience of finding the specific `Vector3` for each material myself.
+<br/> <br/>
+
+At first, it was considered interpolating using the `setPosition` method, which already out of the box supports a smooth camera transition, but had the inconvenience of finding the specific `Vector3` for each material by hand. This approach assumed that the object may never move from it's original postion, and it was not the most elegant of the approaches.
 
 Luckily, the camera controls library also comes with the `fitToBox` method, which creates a bounding box around the specified object and makes it so that the camera zoom's in into said bounding box with a specified padding from the viewport's dimension.
 
-![Bounding box](/img/bounding-box.gif)
+<img class="mx-auto" src="/img/bounding-box.gif"  width="50%"/>
 
 This allows us to delegate the finding of the appropriate framing of the selected object, no matter from which starting position the camera finds itself, or if the object is moving or has moved since we first declared the `Vector3` for each material.
