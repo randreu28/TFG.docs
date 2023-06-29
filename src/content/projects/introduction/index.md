@@ -39,7 +39,7 @@ This chapter provides an overview of shaders, which play a significant role in s
 
 > Although shaders may initially appear complex, they possess a visual nature. The following example illustrates a shader code snippet:
 
-<iframe height="550" width="1000" class="-translate-x-36"  title="Shaders" src="https://actarian.github.io/vscode-glsl-canvas/?glsl=buffers" frameBorder="no" loading="lazy"/>
+<iframe height="550" width="1000" class="-translate-x-36 print:hidden"  title="Shaders" src="https://actarian.github.io/vscode-glsl-canvas/?glsl=buffers" frameBorder="no" loading="lazy"/>
 
 <br/> <br/>
 
@@ -94,7 +94,7 @@ createRoot(document.getElementById("root")).render(
 );
 ```
 
-<iframe src="https://codesandbox.io/embed/icy-tree-brnsm?fontsize=14&hidenavigation=1&theme=dark"
+<iframe class="print:hidden" src="https://codesandbox.io/embed/icy-tree-brnsm?fontsize=14&hidenavigation=1&theme=dark"
      style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
      title="icy-tree-brnsm"
      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"

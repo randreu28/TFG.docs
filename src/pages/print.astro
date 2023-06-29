@@ -1,0 +1,40 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const projects = await getCollection("projects");
+projects.sort((a, b) => a.data.pagination - b.data.pagination);
+
+const rendered = await Promise.all(
+    projects.map(async (project) => await project.render())
+);
+---
+
+<BaseLayout title="TFG Documentation">
+    {
+        rendered.map((project) => {
+            const { Content } = project;
+            return (
+                <>
+                    <Content />
+                    <br />
+                    <div class="pagebreak" />
+                </>
+            );
+        })
+    }
+</BaseLayout>
+
+<style type="text/css">
+    @media print {
+        .pagebreak {
+            page-break-before: always;
+        }
+        iframe {
+            display: none !important;
+        }
+        pre {
+            overflow: hidden !important;
+        }
+    }
+</style>

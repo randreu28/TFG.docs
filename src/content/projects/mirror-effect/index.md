@@ -94,7 +94,7 @@ export default function Mirror(props: JSX.IntrinsicElements["mesh"]) {
 
 For the positioning of the mirror, the mirrors were initially placed according to the vertices of an Icosaedron geometry. Each vertex was the center of the geometry, alongside their Euler angle. Each mirror _looked at_ the center of the Icoshaderon. Take, for example, the Three.js example of the Icosahedron and try to imagine the coordinates of each vertex:
 
-<iframe src="https://threejs.org/docs/scenes/geometry-browser.html#IcosahedronGeometry" width="100%" height="500"/>
+<iframe class="print:hidden" src="https://threejs.org/docs/scenes/geometry-browser.html#IcosahedronGeometry" width="100%" height="500"/>
 
 <br/> <br/>
 
@@ -206,7 +206,7 @@ Lastly, with the help of [React-Postprocessing](https://docs.pmnd.rs/react-postp
 
 You may experiment with the `<Glitch/>` props to see how they modify the effect on this playground:
 
-<iframe src="https://codesandbox.io/embed/glitch-demo-bs1i1?fontsize=14&hidenavigation=1&theme=dark" width="100%" height="500"
+<iframe class="print:hidden" src="https://codesandbox.io/embed/glitch-demo-bs1i1?fontsize=14&hidenavigation=1&theme=dark" width="100%" height="500"
      title="Glitch Demo"
      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"

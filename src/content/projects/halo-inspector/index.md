@@ -340,7 +340,7 @@ export default function CustomCamera() {
 
 Fortunately, R3F has a wide range of controllers for the camera. This time we're using the R3F adaptation of the [camera controls library](https://github.com/yomotsu/camera-controls), which can be interpreted as an inhereted extension of the more common `<OrbitControls/>`, with the addition of extra features, such as methods for tridimensional interpolations:
 
-<iframe src="https://codesandbox.io/embed/cameracontrols-basic-sew669?fontsize=14&hidenavigation=1&theme=dark"
+<iframe class="print:hidden" src="https://codesandbox.io/embed/cameracontrols-basic-sew669?fontsize=14&hidenavigation=1&theme=dark"
      width="100%"
      height="500"
      title="CameraControls - basic"
